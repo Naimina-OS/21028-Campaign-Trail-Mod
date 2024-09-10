@@ -1,0 +1,314 @@
+var audio1 = new Audio('https://audio.jukehost.co.uk/AYUPLM4TmsXr7dTw7Ycwj3DRmjw6EdJA');
+audio1.volume = 1;
+audio1.loop = true;
+audio1.play();
+
+e = campaignTrail_temp;
+e.election_json = [
+	{
+		"model":"campaign_trail.election",
+		"pk": 21,
+		"fields": {
+			"year": 2020,
+			"summary": "<span id='21028description' style='display: initial;'><div style='overflow-y:scroll;height:200px;'>(Epilepsy Warning, this mod will contain flashing images.)<br><br>&lt;System Check Tick, all systems clear,&gt;<br><br>The year is 21,028.<br><br>…<br><br>&lt;System Check Tick, all systems clear,&gt;<br><br>It has been over 19,000 years since the dawn of the New World. <br><br>…<br><br></div><br><button onclick='show()'>About 17776/20021</button></span><span id='17776description' style='display: none;overflow-y:scroll;height:213px;'><div style='overflow-y:scroll;height:200px;'>On April 7th, 2026, humanity stopped aging, and no new babies could be conceived. Soon after that, the nano system went online, protecting humans from all forms of harm, and ensuring no human would ever die again. Since then, human cultural progress has mostly stagnated, with all the old generations having culturally stagnated around the world of the 2020’s.<br><br>Humans have given up the pursuit of conquest and ambition, instead contenting themselves with the act of endless leisure and recreation. The original story of 17776 and its sequel, 20020, are written by Jon Bois, and this mod is a fan-work set in this timeline in the year 21028.<br><br></div><br><button onclick='back()'>Back</button></span>",
+			"image_url": "https://i.imgur.com/5YD6nnp.png",
+			"winning_electoral_vote_number":270,
+			"advisor_url":"",
+			"recommended_reading":"",
+			"has_visits":0,
+			"no_electoral_majority_image":"../static/images/2012-no-majority.jpg"}}];
+
+show = function() {
+	document.getElementById("21028description").style.display = 'none';
+	document.getElementById("17776description").style.display = 'initial';
+}
+
+back = function() {
+	document.getElementById("17776description").style.display = 'none';
+	document.getElementById("21028description").style.display = 'initial';
+}
+		
+e.candidate_json = [
+	{
+		"model":"campaign_trail.candidate",
+		"pk":300,
+        "fields": {
+            "first_name": "",
+            "last_name": "(The New World)",
+            "election": 21,
+            "party": "New Worlder",
+            "state": "Earth",
+            "priority": 1,
+            "description": "No one knows how it happened, one day the world just… Stopped. People stopped aging, and no new people could be born. Like a universal lever went off, and somewhere, humanity was caught between the gears of some great cosmic machine.\n<br><br>\nThe fire that inspired them to tame their world has long since burnt out, crushed like Atlas under the unbearable weight of endless monotony. Everyone stood still, and everyone has stood still for over 19,000 years now.\n",
+            "color_hex": "#ffef00",
+            "secondary_color_hex": null,
+            "is_active": 1,
+            "image_url": "https://i.imgur.com/t1gGaI0.png",
+            "electoral_victory_message": "This guy wins!",
+            "electoral_loss_message": "This guy loses!",
+            "no_electoral_majority_message": "We all win?",
+            "description_as_running_mate": null,
+            "candidate_score": 1,
+            "running_mate": false
+        }	
+	},
+	
+	{
+		"model":"campaign_trail.candidate",
+		"pk":301,
+        "fields": {
+            "first_name": "",
+            "last_name": "New Worlders",
+            "election": 21,
+            "party": "Other",
+            "state": "Other",
+            "priority": 1,
+            "description": "<p>Put description here</p>",
+            "color_hex": "#7f7f7f",
+            "secondary_color_hex": null,
+            "is_active": 0,
+            "image_url": "https://www.jetsimon.com/public/candidateexample.png",
+            "electoral_victory_message": "This guy wins!",
+            "electoral_loss_message": "This guy loses!",
+            "no_electoral_majority_message": "We all win?",
+            "description_as_running_mate": null,
+            "candidate_score": 1,
+            "running_mate": false
+        }
+	},
+    {
+        "model": "campaign_trail.candidate",
+        "pk": 302,
+        "fields": {
+            "first_name": "",
+            "last_name": "Independents",
+            "election": 21,
+            "party": "Other",
+            "state": "Other",
+            "priority": 1,
+            "description": "<p>Put description here</p>",
+            "color_hex": "#7f7f7f",
+            "secondary_color_hex": null,
+            "is_active": 0,
+            "image_url": "https://www.jetsimon.com/public/candidateexample.png",
+            "electoral_victory_message": "This guy wins!",
+            "electoral_loss_message": "This guy loses!",
+            "no_electoral_majority_message": "We all win?",
+            "description_as_running_mate": null,
+            "candidate_score": 1,
+            "running_mate": false
+        }
+    },
+    {
+        "model": "campaign_trail.candidate",
+        "pk": 303,
+        "fields": {
+            "first_name": "",
+            "last_name": "Old Worlders",
+            "election": 21,
+            "party": "Other",
+            "state": "Other",
+            "priority": 1,
+            "description": "<p>Put description here</p>",
+            "color_hex": "#7f7f7f",
+            "secondary_color_hex": null,
+            "is_active": 0,
+            "image_url": "https://www.jetsimon.com/public/candidateexample.png",
+            "electoral_victory_message": "This guy wins!",
+            "electoral_loss_message": "This guy loses!",
+            "no_electoral_majority_message": "We all win?",
+            "description_as_running_mate": null,
+            "candidate_score": 1,
+            "running_mate": false
+        }
+    },
+	{
+        "model": "campaign_trail.candidate",
+        "pk": 304,
+        "fields": {
+            "first_name": "Pioneer",
+            "last_name": "Nine",
+            "election": 21,
+            "party": "Old Worlder",
+            "state": "Deep Space",
+            "priority": 1,
+            "description": "<p>Put description here</p>",
+            "color_hex": "#a80000",
+            "secondary_color_hex": null,
+            "is_active": 0,
+            "image_url": "https://i.imgur.com/Sl8HUsT.png",
+            "electoral_victory_message": "This guy wins!",
+            "electoral_loss_message": "This guy loses!",
+            "no_electoral_majority_message": "We all win?",
+            "description_as_running_mate": "(Power is currently off, recharging.)<br><br>\n…<br><br>\n&lt;System Check Tick, all systems clear.&gt;<br><br>\n…<br><br>\n&lt;System Check Tick, all systems clear.&gt;<br><br>\n…\n",
+            "candidate_score": 1,
+            "running_mate": true
+        }
+    },
+	{
+        "model": "campaign_trail.candidate",
+        "pk": 305,
+        "fields": {
+            "first_name": "Gray",
+            "last_name": "Patterson",
+            "election": 21,
+            "party": "Independent",
+            "state": "Pennsylvania",
+            "priority": 1,
+            "description": "Elections rarely mean much anymore in today’s day and age. When there are thousands of ex-presidents to keep track of, it gets hard to care much about the topic. Becoming the president is now more of a formality, something individuals do for the heck of it. Gray Patterson was one of these individuals. He had run this campaign as a way to have fun with his friends.<br><br>With the discovery of extraterrestrial life throwing the election into disarray, everything changes; the first status quo shift in over 15,000 years. Suddenly, all that seemed certain about life was no longer. Should we reach out? Should we stay quiet? Should we fight? This isn’t an election for show anymore, the American people are counting on you.",
+            "color_hex": "#CBCBCB",
+            "secondary_color_hex": null,
+            "is_active": 0,
+            "image_url": "https://i.imgur.com/2Lmm31K.png",
+            "electoral_victory_message": "This guy wins!",
+            "electoral_loss_message": "This guy loses!",
+            "no_electoral_majority_message": "We all win?",
+            "description_as_running_mate": "Elections rarely mean much anymore in today’s day and age. When there are thousands of ex-presidents to keep track of, it gets hard to care much about the topic. Becoming the president is now more of a formality, something individuals do for the heck of it. Gray Patterson was one of these individuals. He had run this campaign as a way to have fun with his friends.<br><br>With the discovery of extraterrestrial life throwing the election into disarray, everything changes; the first status quo shift in over 15,000 years. Suddenly, all that seemed certain about life was no longer. Should we reach out? Should we stay quiet? Should we fight? This isn’t an election for show anymore, the American people are counting on you.",
+            "candidate_score": 1,
+            "running_mate": true
+        }
+    },
+	    {
+        "model": "campaign_trail.candidate",
+        "pk": 306,
+        "fields": {
+            "first_name": "Mark",
+            "last_name": "Eastwood",
+            "election": 21,
+            "party": "Independent",
+            "state": "Pennsylvania",
+            "priority": 1,
+            "description": "You and Mark were only in high school when the New World came about, and neither of you have really left that phase since. You saw as the world froze still, the last children born, and the wheel of progress slowed to its final resting place. He’s your best friend, always has been, went to school together, grew up together through thick and thin.<br><br>He doesn’t particularly care about politics, and you more than suspect he’s a little hesitant. But you wouldn’t have anyone else as your running mate, and he wants to be there when you need him. You think it would be a fun time in the White House, he’s just along for the ride.",
+            "color_hex": "#ffd500",
+            "secondary_color_hex": null,
+            "is_active": 0,
+            "image_url": "https://i.imgur.com/1ifo1FL.png",
+            "electoral_victory_message": "This guy wins!",
+            "electoral_loss_message": "This guy loses!",
+            "no_electoral_majority_message": "We all win?",
+            "description_as_running_mate": "You and Mark were only in high school when the New World came about, and neither of you have really left that phase since. You saw as the world froze still, the last children born, and the wheel of progress slowed to its final resting place. He’s your best friend, always has been, went to school together, grew up together through thick and thin.<br><br>He doesn’t particularly care about politics, and you more than suspect he’s a little hesitant. But you wouldn’t have anyone else as your running mate, and he wants to be there when you need him. You think it would be a fun time in the White House, he’s just along for the ride.",
+            "candidate_score": 1,
+            "running_mate": true
+        }
+    },
+    {
+        "model": "campaign_trail.candidate",
+        "pk": 307,
+        "fields": {
+            "first_name": "Sarah",
+            "last_name": "Powers",
+            "election": 21,
+            "party": "Independent",
+            "state": "Pennsylvania",
+            "priority": 1,
+            "description": "Sarah is the 3rd member of your 3-man band; this tiny campaign team operating out Mark’s dingy house. She’s a wizard with technology, one of the last in this era of stagnation, and obsessed with cryptography. If anyone can get to the bottom of this, it’s her.",
+            "color_hex": "#bb00ff",
+            "secondary_color_hex": null,
+            "is_active": 0,
+            "image_url": "https://i.imgur.com/iUzKyQe.png",
+            "electoral_victory_message": "This guy wins!",
+            "electoral_loss_message": "This guy loses!",
+            "no_electoral_majority_message": "We all win?",
+            "description_as_running_mate": "You met her at the middle school lunch table, listened as she droned on and on about cryptography tables. But you and Mark decided to take her in, and now she’s the third member of your 3-man band. You gave her refuge when everyone made fun of her and helped her stand up for herself. <br><br>Things have changed a lot since then, as she’s learned how to keep her nerdiness down to a 7, and has developed more normal social skills. She’s a wizard with technology, one of the last great thinkers in this era of eternal stagnation. If anyone can get to the bottom of this, it’s her.<br><br>She's looking at you again, you look at her and she turns away quickly. You wonder if she is hiding something.",
+            "candidate_score": 1,
+            "running_mate": true
+        }
+    },
+];
+		
+e.running_mate_json = [
+	{"model":"campaign_trail.running_mate","pk":2001,"fields":{"candidate":300,"running_mate":304}}];
+
+e.credits = "<span style = 'background: dimgray;' title = 'All coding done by u/naimina_os.\nMuch thanks to u/RagyTheKindaHipster for coding help on this unsightly,\nbodged together project held together by hot glue and duct tape.'>several people.</span> Hover here for <span style = 'background: dimgray;' title = \"Music Used:\nRobot's Outro (PPK),UVB-76 Recording, 01.01.1997 (Amour)\nADD MORE LATER\">music details.</span>";
+
+e.global_parameter_json =[
+	{
+		"model":"campaign_trail.global_parameter",
+		"pk":1,
+		"fields":{"vote_variable":1.125,
+		"max_swing":0.12,
+		"start_point":0.1,
+		"candidate_issue_weight":10,
+		"running_mate_issue_weight":3,
+		"issue_stance_1_max":-0.7,
+		"issue_stance_2_max":-0.4,
+		"issue_stance_3_max":-0.1,
+		"issue_stance_4_max":0.1,
+		"issue_stance_5_max":0.4,
+		"issue_stance_6_max":0.7,
+		"global_variance":0.01,
+		"state_variance":0.005,
+		"question_count":25,
+		"default_map_color_hex":"#C9C9C9",
+		"no_state_map_color_hex":"#999999"}
+	}
+];
+
+campaignTrail_temp.temp_election_list = [
+    {
+        "id": 21,
+        "year": 2020,
+        "is_premium": 0,
+        "display_year": "21028 CE"
+    }
+]
+
+//#startcode
+
+corrr = '<h2>THE CAMPAIGN TRAIL</h2><font id="wittyquote" size="4" color="white"><em>"Something is terribly wrong." - Nine</em></font>';
+
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#555555";
+$("#game_window")[0].style.backgroundColor = "#222222";
+$(".container")[0].style.backgroundColor = "#000000";
+document.getElementById("header").src = "https://i.imgur.com/Nz05FuE.png";
+document.body.background = "https://i.imgur.com/HF3PH63.png";
+document.head.innerHTML += "<style>#results_container {color:#000000;} .inner_window_w_desc {background-color:#333333!important;}</style>";
+
+document.getElementById("game_start").addEventListener("click", darkMode1);
+
+document.head.innerHTML += `<style>
+	.game_header {
+		background: #555555;
+	}
+	#header {
+		src: "https://i.imgur.com/Nz05FuE.png";
+	}
+	body {
+		background: url("https://i.imgur.com/HF3PH63.png")
+	}
+	#game_window {
+		background: #222222;
+	}
+	.inner_window_w_desc {
+		background: #333333!important;
+	}`;
+
+
+function darkMode1() {
+	document.getElementsByName("election_year")[0].style = "color:white";
+	document.getElementById("credits").style = "color:white";
+	document.getElementById("election_id_button").addEventListener("click", darkMode2);
+}
+
+function darkMode2() {
+	document.getElementsByName("candidate")[0].style = "color:white";
+	document.getElementById("candidate_id_back").addEventListener("click", darkMode1);
+	document.getElementById("candidate_id_button").addEventListener("click", darkMode3);
+}
+
+function darkMode3() {
+	document.getElementsByName("running mate")[0].style = "color:white";
+	document.getElementById("running_mate_id_back").addEventListener("click", darkMode2);
+	document.getElementById("running_mate_id_button").addEventListener("click", darkMode4);
+}
+
+function darkMode4() {
+	document.getElementsByName("game_type_selection")[0].style = "color:white";
+	document.getElementsByName("difficulty_level_selection")[0].style = "color:white";
+	document.getElementById("opponent_selection_id_back").addEventListener("click", darkMode3);
+	document.getElementById("opponent_selection_id_button").addEventListener("click", pause_audio);
+}
+
+function pause_audio() {
+	audio1.pause();
+}
