@@ -148,13 +148,13 @@ cyoAdventure = function (a) {
 		optimal_answers += 1;
 	}
 	if (ans == 120001) {
-		imageslide("https://i.imgur.com/CVPvkgv.png", false);
+		imageslide("https://i.imgur.com/iVtA7XE.png", false);
 	}
 	if (ans == 120002) {
-		imageslide("https://i.imgur.com/AABHd3T.png", false);
+		imageslide("https://i.imgur.com/12d6VIT.png", false);
 	}
 	if (ans == 130001) {
-		imageslide("https://i.imgur.com/uL0moYf.png", true);
+		imageslide("https://i.ibb.co/d0MdtnT/image.png", true);
 		dark_earth_theme();
 	}
 	if (ans == 140002) {
@@ -221,6 +221,9 @@ cyoAdventure = function (a) {
 		e.question_number -= 1;
 		campaignTrail_temp.election_json[0].fields.advisor_url = advisor_image["sarah"];
 	}
+	if (ans == 230003) {
+		campaignTrail_temp.election_json[0].fields.advisor_url = advisor_image["sarah_mark"];
+	}
 	if (ans == 230004) {
 		campaignTrail_temp.questions_json[23]=tunnel("angel_contact");
 		campaignTrail_temp.election_json[0].fields.advisor_url = advisor_image["blank_space"];
@@ -248,7 +251,9 @@ cyoAdventure = function (a) {
 		campaignTrail_temp.election_json[0].fields.advisor_url = advisor_image["sarah_mark"];
 	}
 	if (ans == 250008) {
-		imageslide("https://i.imgur.com/OEvksBL.png",false);
+		stargazing_theme();
+		imageslide("https://i.imgur.com/IBo72UP.png",false);
+		set_support(0);
 	}
 	if (ans == 260001 | ans == 260002 | ans == 260003 | ans == 260004) {
 		update_EV_dict();
@@ -296,8 +301,6 @@ function update_EV_dict() {
 		ev_dict[temp_var[0][n]["pk"]] = temp_var[0][n]["evvs"];
 		pop_dict[temp_var[0][n]["pk"]] = temp_var[0][n]["pvp"];
 	}
-	console.log(ev_dict);
-	console.log(pop_dict);
 	
 }
 
@@ -396,6 +399,14 @@ function adjust_support(num) {
 	}
 }
 
+function set_support(num) {
+	for (let n = 0; n<campaignTrail_temp.candidate_state_multiplier_json.length; n++) {
+		if (campaignTrail_temp.candidate_state_multiplier_json[n]["fields"]["candidate"] == 300) {
+			campaignTrail_temp.candidate_state_multiplier_json[n]["fields"]["state_multiplier"] = num;
+		}
+	}
+}
+
 
 
 function endgame() {
@@ -471,7 +482,7 @@ function earth_theme() {
 	outer_game_window_color = "rgb(117 169 169)";
 	outer_descriptive_window_color = "rgb(80 119 119);";
 	outer_container_color = "rgb(61 89 89)";
-	header_img_url = "https://i.imgur.com/6Cg9891.png";
+	header_img_url = "https://i.imgur.com/gxZsPXP.png";
 	background_img_url = "https://i.imgur.com/Ir5rIvX.png";
 	results_container_color = "rgb(37 107 107)";
 	question_window_color = "#F8F8F8";
@@ -490,9 +501,28 @@ function dark_earth_theme() {
 	outer_game_window_color = "rgb(58 85 85)";
 	outer_descriptive_window_color = "rgb(40 60 60);";
 	outer_container_color = "rgb(30 45 45)";
-	header_img_url = "https://i.imgur.com/DTDkON2.png";
+	header_img_url = "https://i.imgur.com/gxZsPXP.png";
 	background_img_url = "https://i.imgur.com/dRf8w83.png";
 	results_container_color = "rgb(18 54 54)";
+	question_window_color = "#F8F8F8";
+	question_window_background = "";
+	question_window_text_color = "black";
+	question_background_color = "#E8FBFF";
+	progress_window_color = "white";
+	progress_bar_text_color = "black";
+	
+	applyNewTheme();
+}
+
+function stargazing_theme() {
+	
+	header_color = "black";
+	outer_game_window_color = "black";
+	outer_descriptive_window_color = "black";
+	outer_container_color = "black";
+	header_img_url = "https://i.imgur.com/gxZsPXP.png";
+	background_img_url = "https://i.imgur.com/dRf8w83.png";
+	results_container_color = "black";
 	question_window_color = "#F8F8F8";
 	question_window_background = "";
 	question_window_text_color = "black";
@@ -670,7 +700,7 @@ e.image_slide = () => { /* Clearly based on the VP Switcher below height="316"*/
 	if (scroll == false) {
 		image_html = `
 			<div class="person_description_window" id="image_window" style="overflow-y:clip; height: 420px; margin: auto;">
-				<div id="image"> <img id="image_slide" align="bottom" src="${url}" width="952"> </div> 
+				<div id="image"> <img id="image_slide" align="bottom" src="${url}" width="950"> </div> 
 			</div>
 			<p> <button id="image_button">Continue</button> </p>
 			<br>
@@ -700,10 +730,10 @@ e.image_slide = () => { /* Clearly based on the VP Switcher below height="316"*/
 		if (url == "https://i.imgur.com/5DMhB9H.png") {
 			dark_theme();	
 		}
-		if (url == "https://i.imgur.com/lNlWcRz.png") {
+		if (url == "https://i.ibb.co/d0MdtnT/image.png") {
 			earth_theme();
 		}
-		if (url == "https://i.imgur.com/kGn52lo.png") {
+		if (url == "https://i.imgur.com/lNlWcRz.png") {
 			earth_theme();
 		}
 		_e.preventDefault();
@@ -812,7 +842,7 @@ campaignTrail_temp.questions_json = [
         "pk": "bidenfakeout",
         "fields": {
             "priority": 0,
-            "description": "<span style = 'background: yellow;' title = 'Something is terribly wrong.'>What will you say to the American people as you accept your party's nomination for President?</span>",
+            "description": "<span style = 'background: lightgray;' title = 'Something is terribly wrong.'>What will you say to the American people as you accept your party's nomination for President?</span>",
             "likelihood": 1
         }
     },
@@ -956,7 +986,7 @@ campaignTrail_temp.questions_json = [
         "pk": "question17",
         "fields": {
             "priority": 0,
-            "description": "<span style = 'background:yellow;' title = 'You have a feeling this choice is important.'>“So… What do we do now?” Mark asks. “Don’t look at me, I’ve never been the decisive type,” he continues. Sarah looks lost. Her brain was made for math questions, not moral ones. She looks at you. It looks like the decision is yours.</span>",
+            "description": "<span style = 'background:lightgray;' title = 'You have a feeling this choice is important.'>“So… What do we do now?” Mark asks. “Don’t look at me, I’ve never been the decisive type,” he continues. Sarah looks lost. Her brain was made for math questions, not moral ones. She looks at you. It looks like the decision is yours.</span>",
             "likelihood": 1
         }
     },
@@ -983,7 +1013,7 @@ campaignTrail_temp.questions_json = [
         "pk": "question20",
         "fields": {
             "priority": 0,
-            "description": "<span style = 'background:yellow;' title = 'You have a feeling this choice is important.'>A rift runs across America. One promises struggle, and the other promises comfort. It's time to choose a side. Do you wish to align yourself?</span>",
+            "description": "<span style = 'background:lightgray;' title = 'You have a feeling this choice will be consequential.'>A rift runs across America. One promises struggle, and the other promises comfort. It's time to choose a side. Do you wish to align yourself?</span>",
             "likelihood": 1
         }
     },
@@ -992,7 +1022,7 @@ campaignTrail_temp.questions_json = [
         "pk": "question21",
         "fields": {
             "priority": 0,
-            "description": "<span style = 'background:yellow;' title = 'You have a feeling this choice is important.'>You also become alerted that religion is returning to the world. Both cults built around the angels, and more traditional religions of old from before the Dawn of Immortality. How do you respond to this?</span>",
+            "description": "<span style = 'background:lightgray;' title = 'You have a feeling this choice will be consequential.'>You also become alerted that religion is returning to the world. Both cults built around the angels, and more traditional religions of old from before the Dawn of Immortality. How do you respond to this?</span>",
             "likelihood": 1
         }
     },
@@ -1116,6 +1146,24 @@ campaignTrail_temp.questions_json = [
 	{
         "model": "campaign_trail.question",
         "pk": "1st_transition_seam_suboptimal",
+        "fields": {
+            "priority": 0,
+            "description": "Your foot passes the finishing line, it’s over. You feel weightless. You check your phone. You won, but you seem to have encountered something.",
+            "likelihood": 1
+        }
+    },
+	{
+        "model": "campaign_trail.question",
+        "pk": "1st_transition_seam_max",
+        "fields": {
+            "priority": 0,
+            "description": "Your foot passes the finishing line, it’s over. You feel weightless. You check your phone. You won, but you seem to have encountered something.",
+            "likelihood": 1
+        }
+    },
+	{
+        "model": "campaign_trail.question",
+        "pk": "1st_transition_seam_min",
         "fields": {
             "priority": 0,
             "description": "Your foot passes the finishing line, it’s over. You feel weightless. You check your phone. You won, but you seem to have encountered something.",
@@ -1583,7 +1631,7 @@ campaignTrail_temp.answers_json = [
         "pk": 210001,
         "fields": {
             "question": "question21",
-            "description": `The coming of the Angels is undoubtably a sign that there is more than material to this world. <span style = "background: lightgray;", title = 'You have a feeling you will be committing to this.'>The time has come for new faiths, ones which align with the divine revelations they bring us.</span>`,
+            "description": `The coming of the Angels is undoubtably a sign that there is more than material to this world. <span style = "background: lightgray;", title = 'You have a feeling this might get you weird looks from everyone.'>The time has come for new faiths, ones which align with the divine revelations they bring us.</span>`,
         }
     },
 	{
@@ -1591,7 +1639,7 @@ campaignTrail_temp.answers_json = [
         "pk": 210002,
         "fields": {
             "question": "question21",
-            "description": `<span style = "background: lightgray;", title = 'You have a feeling you will be committing to this.'>Fan the flames and spread the Awakening. Especially our ancestral faiths such as Christianity.</span> We are entering a period of spiritual warfare. And Lord knows we will need His help if we want to get through this alive.`,
+            "description": `<span style = "background: lightgray;", title = "You're not sure how Sarah is going to react to this. She's at least a little skeptical of religious fanaticism.">Fan the flames and spread the Awakening. Especially our ancestral faiths such as Christianity.</span> We are entering a period of spiritual warfare. And Lord knows we will need His help if we want to get through this alive.`,
         }
     },
 	{
@@ -1599,7 +1647,7 @@ campaignTrail_temp.answers_json = [
         "pk": 210003,
         "fields": {
             "question": "question21",
-            "description": `I won’t intervene one way or the other so long as they don’t harm anyone. <span style = "background: lightgray;", title = 'You have a feeling you will be committing to this.'Leave it alone and focus on other issues this campaign.</span> There will be room for both religious and secular in the America I build.`,
+            "description": `I won’t intervene one way or the other so long as they don’t harm anyone. <span style = "background: lightgray;", title = 'You have a feeling you will be committing to this.'>Leave it alone and focus on other issues this campaign.</span> There will be room for both religious and secular in the America I build.`,
         }
     },
 	{
@@ -1607,7 +1655,7 @@ campaignTrail_temp.answers_json = [
         "pk": 210004,
         "fields": {
             "question": "question21",
-            "description": `Religion has been nothing but a hinderance on the human race. <span style = "background: lightgray;", title = 'You have a feeling you will be committing to this.'We have to stop this superstitious nonsense before it spreads.</span> Gather all the scientists, rationalists, and experts we can into the room and push back on this.`,
+            "description": `Religion has been nothing but a hinderance on the human race. <span style = "background: lightgray;", title = "You don't know how Mark is going to feel about this. You suspect somewhere down there, he still believes.">We have to stop this superstitious nonsense before it spreads.</span> Gather all the scientists, rationalists, and experts we can into the room and push back on this.`,
         }
     },
 	{
@@ -1843,7 +1891,23 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 1990004,
         "fields": {
-            "question": "1st_transition_seam_optimal",
+            "question": "1st_transition_seam_suboptimal",
+            "description": "… What?",
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 1990005,
+        "fields": {
+            "question": "1st_transition_seam_max",
+            "description": "… What?",
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 1990006,
+        "fields": {
+            "question": "1st_transition_seam_min",
             "description": "… What?",
         }
     },
@@ -2092,7 +2156,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 100004,
             "candidate": 300,
-            "answer_feedback": "You ended up losing a ton of voters due to “what the hell are you thinking”, but also gained a bunch of voters due to morbid curiosity. You’ve somehow managed to replace your entire voterbase."
+            "answer_feedback": "“what the hell are you thinking”<br>That is the reaction of most of the crowd. You lose a bunch of voters, but also gained a bunch of voters due to morbid curiosity. You’ve somehow managed to replace your entire voterbase."
         }
     },
 	{
@@ -2633,6 +2697,24 @@ campaignTrail_temp.answer_feedback_json = [
             "answer": 1990004,
             "candidate": 300,
             "answer_feedback": `You have found a seam in reality.`
+        }
+    },
+	{
+        "model": "campaign_trail.answer_feedback",
+        "pk": "f 1990005",
+        "fields": {
+            "answer": 1990005,
+            "candidate": 300,
+            "answer_feedback": `You have found a seam in reality. Connection established, engaging "Spacebar Protocol"...`
+        }
+    },
+	{
+        "model": "campaign_trail.answer_feedback",
+        "pk": "f 1990006",
+        "fields": {
+            "answer": 1990006,
+            "candidate": 300,
+            "answer_feedback": `You have found a seam in reality. Connection established, engaging "Spacebar Protocol"...`
         }
     },
 ]
@@ -9764,9 +9846,16 @@ endingPicker = (out, totv, aa, quickstats) => {
 
 	// if (campaignTrail_temp.player_answers[24] == 8090 && quickstats[0] >= 270 && campaignTrail_temp.running_mate_last_name == "PlaceLastNameHere") 
 	
-	return `<span id="ending_text"><h3>Thank you for playing the demo</h3><p>Believe it or not, all of this was just the demo for the real deal. I have a big word document full of all the lore, draft questions, and mechanics. This is Part 1 of maybe 3 or 4. The full thing will probably have somewhere in the ballpark of 80 to 100+ questions. Buckle up, for Mr. Patterson's wild ride has only just begun.</p></span>`
+	if (ending == "stargazing") {
+		setImage("https://i.imgur.com/X42ImKQ.png");
+		return `<span style='background: black; color: white;' id="ending_text"><h3>Stargazing at the End of Time</h3><div style='background: black; color: white; overflow-y:scroll; height:235px;'><p>You look up at the inky expanse above you, and your best friends are around you. And you remember how grateful you are to have them.<br><br>"Just one more time, you say. Thank you guys for everything. You guys are the best friends I could ever ask for," you say.<br><br>"Anytime," Mark says, once again. Sarah continues to be silent.<br><br>The shared silence is all you need.</p></div></span>`
+	}
 
 }
+
+slides = [];
+
+
 
 
 function simulated_getLatestRes(t) {
