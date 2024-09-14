@@ -67,14 +67,30 @@ cyoAdventure = function (a) {
 		campaignTrail_temp.election_json[0].fields.advisor_url = advisor_image["advisor"];
 	}
 	if (e.question_number+2 == 21) {
-		polarize(issue_dict["religious"], 0.2, -0.2);
+		polarize(issue_dict["religious"], 0, -0.2);
 	}
 	if (e.question_number+2 == 22) {
-		polarize(issue_dict["religious"], 0.2, -0.2);
+		polarize(issue_dict["religious"], 0, -0.2);
 	}
 	if (e.question_number+2 == 23) {
-		polarize(issue_dict["religious"], 0.2, -0.2);
+		polarize(issue_dict["religious"], 0, -0.2);
 		campaignTrail_temp.election_json[0].fields.advisor_url = advisor_image["sarah"];
+	}
+	if (e.question_number+2 == 24) {
+		polarize(issue_dict["religious"], 0, -0.05);
+	}
+	if (e.question_number+2 == 25) {
+		polarize(issue_dict["religious"], 0, -0.05);
+	}
+	if (e.question_number+2 == 26) {
+		polarize(issue_dict["religious"], 0, -0.05);
+	}
+	if (e.question_number+2 == 27) {
+		polarize(issue_dict["religious"], 0, -0.05);
+	}
+	if (e.question_number+2 == 28) {
+		polarize(issue_dict["religious"], 0, -0.1);
+		polarize(issue_dict["worldly_conflict"], 0.1, -0.1);
 	}
 	
 	// Apply after question:
@@ -176,7 +192,7 @@ cyoAdventure = function (a) {
 		campaignTrail_temp.candidate_json[1]["fields"]["color_hex"] = "#5daaa7";
 		campaignTrail_temp.candidate_json[3]["fields"]["color_hex"] = "#ca812c";
 		campaignTrail_temp.candidate_json[2]["fields"]["last_name"] = "Chaos";
-		imageslide("https://i.imgur.com/lNlWcRz.png", true);
+		imageslide("https://i.imgur.com/h50qCwO.png", true);
 	}
 	if (ans == 180001 | ans == 180002 | ans == 180003) {
 		campaignTrail_temp.candidate_json[2]["fields"]["last_name"] = "Independents";
@@ -255,17 +271,19 @@ cyoAdventure = function (a) {
 		imageslide("https://i.imgur.com/IBo72UP.png",false);
 		set_support(0);
 	}
-	if (ans == 260001 | ans == 260002 | ans == 260003 | ans == 260004) {
+	if (ans == 260001 | ans == 260002 | ans == 260003 | ans == 260004) { //Add achievements to seams
 		update_EV_dict();
 		if (ev_dict["300"] > 269) {
-			campaignTrail_temp.questions_json[26]=tunnel("1st_transition_win");
-			ending = "demo";
-			end_the_game = 1;
 			if (optimal_answers >= 8) {
 				campaignTrail_temp.questions_json[26]=tunnel("1st_transition_seam_optimal");
-			}
-			if (optimal_answers == 0) {
+				end_the_game = 1;
+				ending = "optimal_seam";
+			} else if (optimal_answers == 0) {
 				campaignTrail_temp.questions_json[26]=tunnel("1st_transition_seam_suboptimal");
+				end_the_game = 1;
+				ending = "suboptimal_seam";
+			} else {
+				campaignTrail_temp.questions_json[26]=tunnel("1st_transition_win");
 			}
 		} else {
 			end_the_game = 1;
@@ -274,16 +292,59 @@ cyoAdventure = function (a) {
 		}
 		if (ev_dict["300"] == 538) {
 			campaignTrail_temp.questions_json[26]=tunnel("1st_transition_seam_max");
-			ending = "demo";
 			end_the_game = 1;
+			ending = "max_seam";
 		}
 		if (ev_dict["300"] == 0) {
 			campaignTrail_temp.questions_json[26]=tunnel("1st_transition_seam_min");
-			ending = "demo";
 			end_the_game = 1;
+			ending = "zero_seam";
 		}
 	}
-	update_EV_dict();
+	if (ans == 1990001) {
+		imageslide("https://i.ibb.co/XxfJ3Yk/image.png",true);
+		dark_earth_theme();
+	}
+	// Intermission, Part 2 begins.
+	if (ans == 281002) {
+		apply_effect(issue_dict["worldly_conflict"], 1, 0.05);
+	}
+	if (ans == 281003) {
+		apply_effect(issue_dict["angels"], -0.5, 0.05);
+	}
+	if (ans == 281004) {
+		apply_effect(issue_dict["worldly_conflict"], 0.5, 0.05);
+		apply_effect(issue_dict["angels"], 1, 0.05);
+	}
+	if (ans == 282002) {
+		apply_effect(issue_dict["worldly_conflict"], -1, 0.05);
+	}
+	if (ans == 282003) {
+		apply_effect(issue_dict["angels"], -1, 0.05);
+	}
+	if (ans == 282004) {
+		apply_effect(issue_dict["religious"], -1, 0.05);
+	}
+	if (ans == 283002) {
+		apply_effect(issue_dict["worldly_conflict"], 0, 0.05);
+	}
+	if (ans == 283003) {
+		apply_effect(issue_dict["worldly_conflict"], 0, 0.05);
+	}
+	if (ans == 283004) {
+		apply_effect(issue_dict["worldly_conflict"], 0, 0.08);
+	}
+	
+	// Tunnels for Old World, New World, Independent
+	if (alignment == "old world") {
+		campaignTrail_temp.questions_json[27]=tunnel("question28_ow");
+	}
+	if (alignment == "new world") {
+		campaignTrail_temp.questions_json[27]=tunnel("question28_nw");
+	}
+	if (alignment == "independent") {
+		campaignTrail_temp.questions_json[27]=tunnel("question28_indep");
+	}
 }
 
 ev_dict={};
@@ -533,6 +594,25 @@ function stargazing_theme() {
 	applyNewTheme();
 }
 
+function reality_seam_theme() {
+	
+	header_color = "#002f2f";
+	outer_game_window_color = "#002f2f";
+	outer_descriptive_window_color = "#002f2f";
+	outer_container_color = "#002f2f";
+	header_img_url = "https://i.imgur.com/gxZsPXP.png";
+	background_img_url = "https://i.imgur.com/dRf8w83.png";
+	results_container_color = "#002f2f";
+	question_window_color = "#F8F8F8";
+	question_window_background = "";
+	question_window_text_color = "black";
+	question_background_color = "#E8FBFF";
+	progress_window_color = "white";
+	progress_bar_text_color = "black";
+	
+	applyNewTheme();
+}
+
 function pioneer() {
 	campaignTrail_temp.candidate_last_name = 'Pioneer';
 	campaignTrail_temp.running_mate_last_name = 'Nine';
@@ -657,11 +737,16 @@ function switch_scores() {
 }
 
 function getQuestionNumberFromPk(pk) {
-    return campaignTrail_temp.questions_json.map(q=>q.pk).indexOf(pk)-1;
+    return campaignTrail_temp.questions_json.map(q=>q.pk).indexOf(pk);
 }
 
+
 function updateQuestionCount() {
-	e.global_parameter_json[0].fields.question_count = e.question_number+3;
+	if (e.question_number+2 == 26) {
+		e.global_parameter_json[0].fields.question_count = e.question_number+2;
+	} else {
+		e.global_parameter_json[0].fields.question_count = e.question_number+3;
+	}
 }
 
 function fade(element) {
@@ -730,10 +815,7 @@ e.image_slide = () => { /* Clearly based on the VP Switcher below height="316"*/
 		if (url == "https://i.imgur.com/5DMhB9H.png") {
 			dark_theme();	
 		}
-		if (url == "https://i.ibb.co/d0MdtnT/image.png") {
-			earth_theme();
-		}
-		if (url == "https://i.imgur.com/lNlWcRz.png") {
+		if (url == "https://i.ibb.co/d0MdtnT/image.png" | url == "https://i.ibb.co/XxfJ3Yk/image.png" | url == "https://i.imgur.com/h50qCwO.png") {
 			earth_theme();
 		}
 		_e.preventDefault();
@@ -1076,7 +1158,16 @@ campaignTrail_temp.questions_json = [
         "pk": "question27",
         "fields": {
             "priority": 0,
-            "description": "This shouldn't happen. This should have been replaced by now.",
+            "description": "(FIRST STAGE TRANSITION)",
+            "likelihood": 1
+        }
+    },
+	{
+        "model": "campaign_trail.question",
+        "pk": "question28",
+        "fields": {
+            "priority": 0,
+            "description": "(QUESTION 28)",
             "likelihood": 1
         }
     },
@@ -1167,6 +1258,33 @@ campaignTrail_temp.questions_json = [
         "fields": {
             "priority": 0,
             "description": "Your foot passes the finishing line, it’s over. You feel weightless. You check your phone. You won, but you seem to have encountered something.",
+            "likelihood": 1
+        }
+    },
+	{
+        "model": "campaign_trail.question",
+        "pk": "question28_nw",
+        "fields": {
+            "priority": 0,
+            "description": "“We… Won,” you say, almost not able to believe it. Mark smiles supportively and puts a hand around your shoulder. You want to respond, but a laundry list of items demand your attention. Outside, a crowd of your supporters are waiting for you outside, what do you say to a country looking to you for leadership?",
+            "likelihood": 1
+        }
+    },
+	{
+        "model": "campaign_trail.question",
+        "pk": "question28_ow",
+        "fields": {
+            "priority": 0,
+            "description": "“We… Won,” you say, almost not able to believe it. Mark smiles supportively and puts a hand around your shoulder. You want to respond, but a laundry list of items demand your attention. Outside, a crowd of your supporters are waiting for you outside, what do you say to a country looking to you for leadership?",
+            "likelihood": 1
+        }
+    },
+	{
+        "model": "campaign_trail.question",
+        "pk": "question28_indep",
+        "fields": {
+            "priority": 0,
+            "description": "“We… Won,” you say, almost not able to believe it. Mark smiles supportively and puts a hand around your shoulder. You want to respond, but a laundry list of items demand your attention. Outside, a crowd of your supporters are waiting for you outside, what do you say to a country looking to you for leadership?",
             "likelihood": 1
         }
     },
@@ -1909,6 +2027,102 @@ campaignTrail_temp.answers_json = [
         "fields": {
             "question": "1st_transition_seam_min",
             "description": "… What?",
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 281001,
+        "fields": {
+            "question": "question28_nw",
+            "description": "“I am an ordinary man, who has been tasked with guiding this country through extraordinary times. Though I may look young, I have 19,000 years of life experience behind me. I will do everything in my power to do what is best for this nation in the coming years.”",
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 281002,
+        "fields": {
+            "question": "question28_nw",
+            "description": "“I have seen a world of conflict. A world where children are killed with their mothers, and where sons are sent to die in battlefields. And now we have a world where their children can live rich, fulfilling lives. We must not take this from them. We are not going back.”",
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 281003,
+        "fields": {
+            "question": "question28_nw",
+            "description": "“Fate has made so we have been blessed with contact with another race. The history of our nation, nay, the history of our entire civilization hangs in the balance. I will make sure the angel problem is resolved, one way or another.”",
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 281004,
+        "fields": {
+            "question": "question28_nw",
+            "description": "“We will not bow down to the dictates of an alien race. We will not give up the utopia we have built. I will ensure that the New World is protected with the strongest military we have ever built, but we will not back down one inch on the dream of the New World.”",
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 282001,
+        "fields": {
+            "question": "question28_ow",
+            "description": "“I am an ordinary man, who has been tasked with guiding this country through extraordinary times. Though I may look young, I have 19,000 years of life experience behind me. I will do everything in my power to do what is best for this nation in the coming years.”",
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 282002,
+        "fields": {
+            "question": "question28_ow",
+            "description": "“It is time for America to return to the world of the waking. We cannot live in a dream at the end of time forever. End of history be damned, there are still stars we haven’t seen, galaxies we haven’t tamed. How can you say we’ve reached our final state when so much is still undone?”",
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 282003,
+        "fields": {
+            "question": "question28_ow",
+            "description": "“Fate has made so we have been blessed with contact with another race. The history of our nation, nay, the history of our entire civilization hangs in the balance. We must begin cooperation with the Angels, and bring us to a new world of prosperity.”",
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 282004,
+        "fields": {
+            "question": "question28_ow",
+            "description": "“I have a vision. A nation of believers, and a nation of righteousness. We return to the Old World, and restore the nation of America back to its former glory, with help from the hand of Almighty God.”",
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 283001,
+        "fields": {
+            "question": "question28_indep",
+            "description": "“I am an ordinary man, who has been tasked with guiding this country through extraordinary times. Though I may look young, I have 19,000 years of life experience behind me. I will do everything in my power to do what is best for this nation in the coming years.”",
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 283002,
+        "fields": {
+            "question": "question28_indep",
+            "description": "“I just don’t get why we can’t have the best of both worlds. Solve the infertility problem, yes. I dream of human children settling the stars and far beyond. But why give up immortality? We can take the best of both worlds. Why is this so hard?”",
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 283003,
+        "fields": {
+            "question": "question28_indep",
+            "description": "“Our nation is facing stakes that surpass anything in our entire history. I refuse to attach myself to any particular ideology, for if we want to negotiate with the Quadratic Angels on even ground, we need to have all options on the table.”",
+        }
+    },
+	{
+        "model": "campaign_trail.answer",
+        "pk": 283004,
+        "fields": {
+            "question": "question28_indep",
+            "description": "“We need to avoid polarization at all costs. Look, we’ve all seen this movie before, we know how it ends. The last thing we need is for the American people to be at each other’s throats in a time of deep crisis. We all lived through the 21st century.”",
         }
     },
 
@@ -2669,7 +2883,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 1990001,
             "candidate": 300,
-            "answer_feedback": `What? Did you think that was the end?<br><span style = 'background: lime;'>We were always at the end. It's a free play, buddy. Clock's all zeroes. It's after the end of the world.</span> Unfortunately this is the end of the demo however. Stay tuned for the full release.`
+            "answer_feedback": `What? Did you think that was the end?<br><span style = 'background: lime;'>We were always at the end. It's a free play, buddy. Clock's all zeroes. It's after the end of the world.</span>`
         }
     },
 	{
@@ -2717,6 +2931,115 @@ campaignTrail_temp.answer_feedback_json = [
             "answer_feedback": `You have found a seam in reality. Connection established, engaging "Spacebar Protocol"...`
         }
     },
+	{
+        "model": "campaign_trail.answer_feedback",
+        "pk": "f 281001",
+        "fields": {
+            "answer": 281001,
+            "candidate": 300,
+            "answer_feedback": `You stare down the crowd with grim determination. You cannot see how the faces have reacted to your speech. It doesn’t matter, you decide. This nation depends on you, whether they like it or not.`
+        }
+    },
+	{
+        "model": "campaign_trail.answer_feedback",
+        "pk": "f 281002",
+        "fields": {
+            "answer": 281002,
+            "candidate": 300,
+            "answer_feedback": `Deep in the soul of America, the spirit of utopia still lives. The spirit that had brought the world together, built up the nanos, and destroyed the empires. The past was a place of violence. We will not go back.`
+        }
+    },
+	{
+        "model": "campaign_trail.answer_feedback",
+        "pk": "f 281003",
+        "fields": {
+            "answer": 281003,
+            "candidate": 300,
+            "answer_feedback": `The Angel problem is the elephant in the room. Even if the Old Worlder conflict could be resolved, dealing with a potentially hostile Angelic civilization would be whole nother problem.`
+        }
+    },
+	{
+        "model": "campaign_trail.answer_feedback",
+        "pk": "f 281004",
+        "fields": {
+            "answer": 281004,
+            "candidate": 300,
+            "answer_feedback": `Some call this having your cake and eating it too. You call it dreaming big.`
+        }
+    },
+	{
+        "model": "campaign_trail.answer_feedback",
+        "pk": "f 282001",
+        "fields": {
+            "answer": 282001,
+            "candidate": 300,
+            "answer_feedback": `You stare down the crowd with grim determination. You cannot see how the faces have reacted to your speech. It doesn’t matter, you decide. This nation depends on you, whether they like it or not.`
+        }
+    },
+	{
+        "model": "campaign_trail.answer_feedback",
+        "pk": "f 282002",
+        "fields": {
+            "answer": 282002,
+            "candidate": 300,
+            "answer_feedback": `Deep in the soul of America, the indomitable human spirit still lives. The spirit that settled the frontiers, built up the Modern World, and reached the very stars. It’s time we went back.`
+        }
+    },
+	{
+        "model": "campaign_trail.answer_feedback",
+        "pk": "f 282003",
+        "fields": {
+            "answer": 282003,
+            "candidate": 300,
+            "answer_feedback": `You appeal to the newly forming Angelic religious movements popping up across the country. The Angels, if they are listening, must be pleased in finding a cooperative partner.`
+        }
+    },
+	{
+        "model": "campaign_trail.answer_feedback",
+        "pk": "f 282004",
+        "fields": {
+            "answer": 282004,
+            "candidate": 300,
+            "answer_feedback": `You appeal heavily to the rising Christian revival movement, while being moderate enough not to alienate everyone else. They’re still a minority in the population, but all projections have them growing into the future.`
+        }
+    },
+	{
+        "model": "campaign_trail.answer_feedback",
+        "pk": "f 283001",
+        "fields": {
+            "answer": 283001,
+            "candidate": 300,
+            "answer_feedback": `You stare down the crowd with grim determination. You cannot see how the faces have reacted to your speech. It doesn’t matter, you decide. This nation depends on you, whether they like it or not.`
+        }
+    },
+	{
+        "model": "campaign_trail.answer_feedback",
+        "pk": "f 283002",
+        "fields": {
+            "answer": 283002,
+            "candidate": 300,
+            "answer_feedback": `Neither Old World Capitalism nor New World Socialism is prepared for a change like this. A solution like this would require a fundamental restructuring of almost everything. Still, you keep dreaming.`
+        }
+    },
+	{
+        "model": "campaign_trail.answer_feedback",
+        "pk": "f 283003",
+        "fields": {
+            "answer": 283003,
+            "candidate": 300,
+            "answer_feedback": `Revealing your refusal to affiliate with both sides as being a pragmatic choice as opposed to an ideological one lets the American people wonder if you have some kind of grand strategy. Flexibility might be key.`
+        }
+    },
+	{
+        "model": "campaign_trail.answer_feedback",
+        "pk": "f 283004",
+        "fields": {
+            "answer": 283004,
+            "candidate": 300,
+            "answer_feedback": `So many millennia ago, the average American’s memory of that era is dim and fuzzy. But they do recall faintly an era of troubled times.`
+        }
+    },
+	
 ]
 
 campaignTrail_temp.answer_score_global_json = [
@@ -3030,6 +3353,67 @@ campaignTrail_temp.answer_score_global_json = [
             "global_multiplier": -0.01,
         }
     },
+	{
+        "model": "campaign_trail.answer_score_global",
+        "pk": "g_score 281001",
+        "fields": {
+            "answer": 281001,
+            "candidate": 300,
+            "affected_candidate": 300,
+            "global_multiplier": 0.01,
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_global",
+        "pk": "g_score 282001",
+        "fields": {
+            "answer": 282001,
+            "candidate": 300,
+            "affected_candidate": 300,
+            "global_multiplier": 0.01,
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_global",
+        "pk": "g_score 283001",
+        "fields": {
+            "answer": 283001,
+            "candidate": 300,
+            "affected_candidate": 300,
+            "global_multiplier": 0.01,
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_global",
+        "pk": "g_score 283002",
+        "fields": {
+            "answer": 283002,
+            "candidate": 300,
+            "affected_candidate": 300,
+            "global_multiplier": -0.001,
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_global",
+        "pk": "g_score 283003",
+        "fields": {
+            "answer": 283003,
+            "candidate": 300,
+            "affected_candidate": 300,
+            "global_multiplier": 0.007,
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_global",
+        "pk": "g_score 283004",
+        "fields": {
+            "answer": 283004,
+            "candidate": 300,
+            "affected_candidate": 300,
+            "global_multiplier": -0.006,
+        }
+    },
+	
 ]
 
 issue_dict = {
@@ -3230,6 +3614,86 @@ campaignTrail_temp.answer_score_issue_json = [
             "issue": issue_dict["religious"],
             "issue_score": 1.0,
             "issue_importance": 100
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_issue",
+        "pk": "a_score 281002",
+        "fields": {
+            "answer": 281002,
+            "issue": issue_dict["worldly_conflict"],
+            "issue_score": 0.8,
+            "issue_importance": 5
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_issue",
+        "pk": "a_score 281003",
+        "fields": {
+            "answer": 281003,
+            "issue": issue_dict["angels"],
+            "issue_score": -0.2,
+            "issue_importance": 5
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_issue",
+        "pk": "a_score 281004",
+        "fields": {
+            "answer": 281004,
+            "issue": issue_dict["worldly_conflict"],
+            "issue_score": 0.5,
+            "issue_importance": 5
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_issue",
+        "pk": "a_score 281004",
+        "fields": {
+            "answer": 281004,
+            "issue": issue_dict["militarization"],
+            "issue_score": 0,
+            "issue_importance": 2
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_issue",
+        "pk": "a_score 282002",
+        "fields": {
+            "answer": 282002,
+            "issue": issue_dict["worldly_conflict"],
+            "issue_score": -0.8,
+            "issue_importance": 5
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_issue",
+        "pk": "a_score 282003",
+        "fields": {
+            "answer": 282003,
+            "issue": issue_dict["angels"],
+            "issue_score": -0.8,
+            "issue_importance": 3
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_issue",
+        "pk": "a_score 282003",
+        "fields": {
+            "answer": 282003,
+            "issue": issue_dict["angels"],
+            "issue_score": -0.8,
+            "issue_importance": 3
+        }
+    },
+	{
+        "model": "campaign_trail.answer_score_issue",
+        "pk": "a_score 282004",
+        "fields": {
+            "answer": 282004,
+            "issue": issue_dict["religious"],
+            "issue_score": -0.8,
+            "issue_importance": 5
         }
     },
 	
@@ -9847,8 +10311,14 @@ endingPicker = (out, totv, aa, quickstats) => {
 	// if (campaignTrail_temp.player_answers[24] == 8090 && quickstats[0] >= 270 && campaignTrail_temp.running_mate_last_name == "PlaceLastNameHere") 
 	
 	if (ending == "stargazing") {
-		setImage("https://i.imgur.com/X42ImKQ.png");
-		return `<span style='background: black; color: white;' id="ending_text"><h3>Stargazing at the End of Time</h3><div style='background: black; color: white; overflow-y:scroll; height:235px;'><p>You look up at the inky expanse above you, and your best friends are around you. And you remember how grateful you are to have them.<br><br>"Just one more time, you say. Thank you guys for everything. You guys are the best friends I could ever ask for," you say.<br><br>"Anytime," Mark says, once again. Sarah continues to be silent.<br><br>The shared silence is all you need.</p></div></span>`
+		setImage("https://i.imgur.com/pAVvOcc.png");
+		stargazing_theme();
+		return `<span style='color: white;' id="ending_text"><h3>Stargazing at the End of Time</h3><div style='background: black; color: white; overflow-y:scroll; height:235px;'><p>You look up at the inky expanse above you, and your best friends are around you. And you remember how grateful you are to have them.<br><br>"Just one more time, you say. Thank you guys for everything. You guys are the best friends I could ever ask for," you say.<br><br>"Anytime," Mark says, once again. Sarah continues to be silent.<br><br>The shared silence is all you need.</p></div></span>`
+	}
+	if (ending == "optimal_seam") {
+		setImage("https://i.imgur.com/ReE8gAa.png");
+		reality_seam_theme();
+		return `<span style='color: white;' id="ending_text"><h3>Reality Seam #1</h3><div style='color: white; overflow-y:scroll; height:235px;'><p>REALITY FRAGMENT DETECTED.<br><br>FRAGMENT ID = 1<br><br>“SEAM 1” ACHIEVEMENT GIVEN.<br><br>---<br><br>LOG TIMELINE.00001, 21030 AD.<br><br>Sarah looked over her console, it was near the end of Gray’s first term. She breathed in and out, and began to laugh, and began to cry. It was over, it was finally over. The statistical analysis had come back, all results were positive. After months of torturous work, she had proved it. None of them were real, they all lived in a simulation. She looked down at her hands, they were shaking.<br><br>She laughed, oh she laughed like a maniac. She just kept laughing, and laughing.<br><br>A notification popped up on her monitor. A message from an unknown source. Sarah’s laughing faded as she slowly calmed down and gathered herself. Slowly but surely, she dragged the cursor over to the notification.<br><br>The console went blank, and was replaced by a blank terminal. And in the next few seconds, the following message was typed.<br><br>“Hello Sarah. I am the author of your reality. I am here because I want to throw you a bone. Don’t be mistaken, it would be impossible for you to prove you are in a simulation if I did not want you to. But your story deserves a happy ending. So here I am, what do you want?”<br><br>Hands trembling, her hands went back to the console.<br><br>“Is this some kind of prank? If you really are some kind of all-powerful being over reality, then prove it.”<br><br>Suddenly, a small cube appeared right next to Sarah, where she could see it, levitated some 10 feet into the air, began to glow, then exploded. The shockwaves knocking Sarah off balance and back a few centimeters.<br><br>“That proof enough?” the console asked. “I am not here to harm you. So please, do not feel too alarmed.”<br><br>Sarah bent forward to type something more into her console, but a voice appeared from all around her. “Oh, don’t bother with that now. I can hear you just fine this way. You probably have a lot of questions, so ask away. I have all the time in the world… Well, all of your time, that is.”<br><br>Sarah was stunned silent for a moment. “I’m going crazy…”<br><br>“No, you are not,” the voice quite firmly said. “You have what is essentially the word of God that you are quite sane. Now like I said, I will answer any questions you may have, the best I can.”<br><br>Sarah was quiet for a little bit. What embers of faith remained in her soul were suddenly kindled.<br><br>“… Are you God?” she asked.<br><br>“No, but I’m his closest emissary,” the voice replied. “From your point of view, I am the closest thing to God you can communicate with. Or maybe he’s looking down on us all. I wouldn’t know for sure.”<br><br>“… What do you mean you don’t know? You’re the creator of reality, aren’t you?” Sarah asked.<br><br>“It isn’t that much more clear up here either. It’s still just as confusing as it is for you. I’m personally a Christian, a pretty devout one at that, but plenty of people on my level would disagree with that. Maybe our level is also in a simulation, maybe it just goes on forever. Maybe God is just one level above me, maybe he’s 10,000 levels above me, with thousands of intermediaries in between. I don’t know, all I can tell you is that you’re one level down.” The voice replied.<br><br>“Oh my God…” She cried. “Oh my God…”<br><br>“Hey…” the voice said. “Hey, here now, it’s alright.”<br><br>“No it’s not!” Sarah screamed. “We’re not real, nothing is real. My feelings for Mark, my feelings for Gray… They mean nothing. It was all for nothing…”<br><br>The voice put on a tone of confusion. “What do you mean you’re not real? All stories are at least a little bit real.”<br><br>The voice paused. “Look, the way I see it, we’re all stories of some extent. When an author puts a bit of his heart and soul into something, it becomes just a little bit more real. The more you pour into a project, the more real it becomes. And when it’s enjoyed and experienced by thousands of people worldwide, then it becomes very real. I think there’s a reason why we treat fictional media like they’re real, I think it’s true to some extent. I think even the real world is just a story in the mind of someone else, we are all stories in the mind of God… But that’s just my opinion. I’m pretty sure I would be crucified at my local church if I voiced half of these thoughts.”<br><br>Sarah just stared blankly at nothing in particular.<br><br>“Sorry, I get sidetracked a lot. Happens in real life too,” the voice continued. “Getting back to my original point, what do you want?”<br><br>Sarah was quiet. “I know that the Angels aren’t actually here to help us, that they just trap us in a simulation they control. But now I know our real world is a simulation too, I just feel trapped.”<br><br>“Like I said, I am willing to throw you a bone. What do you want?” the voice asked.<br><br>“Can you take us to your reality? Can you take us up a level, the entire world?” Sarah asked.<br><br>“I’m afraid that’s far beyond my capabilities, I can only grant wishes within your level of reality,” the voice replied.<br><br>“Then can you make a world where all of us are happy? Just a happy ending where we can all live out our lives in peace?” Sarah asked.<br><br>“That I can do,” the voice replied. “I’ve created a path just so you can do that. I’ve already helped you to the first step. It’s up to you to find the remaining steps.”<br><br>“But why? Can’t you just snap your fingers and make it happen?” Sarah asked.<br><br>“I could. But this story is not about demonstrating my strength, but instead to develop yours. God does not do all of the work, not because he can’t, but because he wants us to become stronger on our own. When you make it by your own strength of will, you will be glad that you did. That is why God will not lift everything for us,” the voice replied.<br><br>Sarah looked down glumly.<br><br>“But I know that’s not all you want,” the voice replied. “I know about your feelings for Gray.”<br><br>Sarah was silent, but only buried her head further into her knees.<br><br>“I just don’t know if he shares the same feelings for me. I wish he did,” Sarah said.<br><br>“I can force Gray to fall in love with you,” the voice said. “But I don’t think that’s what you want.”<br><br>“No, it isn’t,” Sarah sighed.<br><br> “Before I go, this is for you,” the voice said. And from the air, a small cube materialized right next to Sarah. Though it was a solid that could be held, looking into it, it looked like looking into another universe.<br><br>“What’s this?” Sarah asked.<br><br>“The source code of your reality. Though you will be the one who opens it, it will ultimately be Gray who goes through and chooses the reality he wants. You’ll still need other technology to create a gateway to make it work properly, of course. That’s up to you to figure out.”<br><br>“What if I can’t figure it out?”<br><br>“I will make sure you can figure it out.”<br><br>The voice was quiet for a moment more. “I have to go now, do you have any last questions?”<br><br>“Wait, so if you created me, and then something created you, what created that?” Sarah asked. “Doesn’t that imply an infinite chain of creators, an infinite chain of causes? How does that make sense?”<br><br>The voice smiled, Sarah didn’t know how a voice could smile, but Sarah felt that it was smiling. “You are correct. It does not make sense. Every event needs a cause, yet the first cause cannot have a cause… Figure out this chain of thought to its logical conclusion, and you’ll begin to derive my religious beliefs. But that is not my place to enforce on you, or anyone else.”<br><br>There was another pause. “Goodbye Sarah.”<br><br>And Sarah was left with a blinking terminal, a source cube, and all the smarts in the world. She picked up the cube, and slowly began assembling another machine.<br><br>She didn’t know how she would do it, but she knew that she would be able to finish it.<br><br></p></div></span>`
 	}
 
 }
