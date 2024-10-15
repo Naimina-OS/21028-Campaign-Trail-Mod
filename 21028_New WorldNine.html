@@ -575,15 +575,7 @@ cyoAdventure = function (a) {
 			set_candidate_score(302,0.2,1,0.3,0.4,0.2);
 			campaignTrail_temp.candidate_json[1]["fields"]["last_name"] = "Kelly";
 			set_candidate_score(302,0.7,1,0.7,0.8,0.3);
-			if (alignment == "old world") {
-				fakevpscreen("perez")
-			}
-			if (alignment == "independent") {
-				fakevpscreen("jacobs")
-			}
-			if (alignment == "new world") {
-				fakevpscreen("kelly")
-			}
+			fakevpscreen("perez")
 		}
 		if (religion == "angelic") {
 			campaignTrail_temp.candidate_json[3]["fields"]["last_name"] = "Roberts";
@@ -592,15 +584,7 @@ cyoAdventure = function (a) {
 			set_candidate_score(303,-0.3,1,-0.2,-0.6,-0.3);
 			campaignTrail_temp.candidate_json[1]["fields"]["last_name"] = "Kelly";
 			set_candidate_score(302,0.7,1,0.7,0.8,0.3);
-			if (alignment == "old world") {
-				fakevpscreen("roberts")
-			}
-			if (alignment == "independent") {
-				fakevpscreen("king")
-			}
-			if (alignment == "new world") {
-				fakevpscreen("kelly")
-			}
+			fakevpscreen("roberts")
 		}
 		if (religion == "secular") {
 			campaignTrail_temp.candidate_json[3]["fields"]["last_name"] = "Perez";
@@ -609,15 +593,7 @@ cyoAdventure = function (a) {
 			set_candidate_score(303,-0.3,1,-0.2,-0.6,-0.3);
 			campaignTrail_temp.candidate_json[1]["fields"]["last_name"] = "Haley";
 			set_candidate_score(302,0.7,1,0.3,-0.4,-0.5);
-			if (alignment == "old world") {
-				fakevpscreen("perez")
-			}
-			if (alignment == "independent") {
-				fakevpscreen("king")
-			}
-			if (alignment == "new world") {
-				fakevpscreen("haley")
-			}
+			fakevpscreen("perez")
 		}
 		if (religion == "antitheist") {
 			campaignTrail_temp.candidate_json[3]["fields"]["last_name"] = "Roberts";
@@ -626,15 +602,7 @@ cyoAdventure = function (a) {
 			set_candidate_score(302,0.2,1,0.3,0.4,0.2);
 			campaignTrail_temp.candidate_json[1]["fields"]["last_name"] = "Haley";
 			set_candidate_score(302,0.7,1,0.3,-0.4,-0.5);
-			if (alignment == "old world") {
-				fakevpscreen("roberts")
-			}
-			if (alignment == "independent") {
-				fakevpscreen("jacobs")
-			}
-			if (alignment == "new world") {
-				fakevpscreen("haley")
-			}
+			fakevpscreen("roberts")
 		}
 	}
 	if (ans == 263004) {
@@ -740,7 +708,7 @@ cyoAdventure = function (a) {
 			campaignTrail_temp.questions_json[getQuestionNumberFromPk("question36")]=getQuestion("1st_transition_seam");
 			end_the_game = 1;
 			ending = "messup";
-		} else if (ev_dict["300"] == 0) {
+		} else if (pop_dict["300"] > 0.01) {
 			campaignTrail_temp.questions_json[getQuestionNumberFromPk("question36")]=getQuestion("1st_transition_seam");
 			end_the_game = 1;
 			ending = "zero_seam";
@@ -1913,6 +1881,30 @@ e.vpSwitcher = () => {
 		_e.preventDefault();
 		if (pot_run_mat[0].fields.first_name == "Gray"){
 			fakevpscreen("mark")
+		}
+		if (pot_run_mat[0].fields.first_name == "Luca" && religion == "christian"){
+			fakevpscreen("jacobs")
+		}
+		if (pot_run_mat[0].fields.first_name == "Tim" && religion == "christian"){
+			fakevpscreen("kelly")
+		}
+		if (pot_run_mat[0].fields.first_name == "Edward" && religion == "angelic"){
+			fakevpscreen("king")
+		}
+		if (pot_run_mat[0].fields.first_name == "John" && religion == "angelic"){
+			fakevpscreen("kelly")
+		}
+		if (pot_run_mat[0].fields.first_name == "Luca" && religion == "secular"){
+			fakevpscreen("king")
+		}
+		if (pot_run_mat[0].fields.first_name == "John" && religion == "secular"){
+			fakevpscreen("haley")
+		}
+		if (pot_run_mat[0].fields.first_name == "Edward" && religion == "antitheist"){
+			fakevpscreen("jacobs")
+		}
+		if (pot_run_mat[0].fields.first_name == "Tim" && religion == "antitheist"){
+			fakevpscreen("haley")
 		}
 		if (pot_run_mat[0].fields.first_name == "Sarah"){
 			imageslide("https://i.imgur.com/n9SHAy9.png", true, "none");
