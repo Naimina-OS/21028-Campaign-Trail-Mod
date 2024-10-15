@@ -25,6 +25,7 @@ pillow = 0;
 notes = 0;
 worldly_subalignment = 0;
 religious_subalignment = 0;
+question5_phase = 0;
 
 
 cyoAdventure = function (a) {
@@ -182,47 +183,56 @@ cyoAdventure = function (a) {
 		e.question_number -= 1;
 		campaignTrail_temp.election_json[0].fields.advisor_url = advisor_image["mark"];
 		e.questions_json[getQuestionNumberFromPk("question5")].fields.description = "The conversation continues."
-		e.answers_json.push(
-			{
-				"model": "campaign_trail.answer",
-				"pk": 50002,
-				"fields": {
-					"question": "question5",
-					"description": "“Has anyone cracked it yet? What does it say?”",
-					"condition": "campaignTrail_temp.player_answers.indexOf(50002) == -1"
+		if (question5_phase == 0) {
+			e.answers_json.push(
+				{
+					"model": "campaign_trail.answer",
+					"pk": 50002,
+					"fields": {
+						"question": "question5",
+						"description": "“Has anyone cracked it yet? What does it say?”",
+						"condition": "campaignTrail_temp.player_answers.indexOf(50002) == -1"
+					}
 				}
-			}
-		)
+			)
+			question5_phase += 1;
+		}
 	}
 	if (ans == 50002) {
 		e.question_number -= 1;
 		campaignTrail_temp.election_json[0].fields.advisor_url = advisor_image["mark"];
-		e.answers_json.push(
-			{
-				"model": "campaign_trail.answer",
-				"pk": 50003,
-				"fields": {
-					"question": "question5",
-					"description": "“I’m thinking of actually joining this hunt. What do you think?”",
-					"condition": "campaignTrail_temp.player_answers.indexOf(50003) == -1"
+		if (question5_phase == 1) {
+			e.answers_json.push(
+				{
+					"model": "campaign_trail.answer",
+					"pk": 50003,
+					"fields": {
+						"question": "question5",
+						"description": "“I’m thinking of actually joining this hunt. What do you think?”",
+						"condition": "campaignTrail_temp.player_answers.indexOf(50003) == -1"
+					}
 				}
-			}
-		)
+			)
+			question5_phase += 1;
+		}
 	}
 	if (ans == 50003) {
 		e.question_number -= 1;
 		campaignTrail_temp.election_json[0].fields.advisor_url = advisor_image["mark"];
-		e.answers_json.push(
-			{
-				"model": "campaign_trail.answer",
-				"pk": 50004,
-				"fields": {
-					"question": "question5",
-					"description": "“Well, nothing left to do but to join this race.”",
-					"condition": "campaignTrail_temp.player_answers.indexOf(50004) == -1"
+		if (question5_phase == 2) {
+			e.answers_json.push(
+				{
+					"model": "campaign_trail.answer",
+					"pk": 50004,
+					"fields": {
+						"question": "question5",
+						"description": "“Well, nothing left to do but to join this race.”",
+						"condition": "campaignTrail_temp.player_answers.indexOf(50004) == -1"
+					}
 				}
-			}
-		)
+			)
+			question5_phase += 1;
+		}
 	}
 	if (ans == 50004) {
 		fakevpscreen("sarah");
@@ -567,7 +577,7 @@ cyoAdventure = function (a) {
 		campaignTrail_temp.election_json[0].fields.advisor_url = advisor_image["sarah_mark"];
 		ending = "stargazing";
 	}
-	if (ans == 250001 | ans == 250002 | ans == 250003) { // This changes the color switching on Question 25.
+	if (ans == 250001 || ans == 250002 || ans == 250003) { // This changes the color switching on Question 25.
 		if (religion == "christian") {
 			campaignTrail_temp.candidate_json[3]["fields"]["first_name"] = "Luca";
 			campaignTrail_temp.candidate_json[3]["fields"]["last_name"] = "Perez";
@@ -710,7 +720,7 @@ cyoAdventure = function (a) {
 		imageslide("https://i.imgur.com/EgycIr3.png",false);
 		set_support(0);
 	}
-	if (ans == 350001 | ans == 350002 | ans == 350003 | ans == 350004) { //Add achievements to seams
+	if (ans == 350001 || ans == 350002 || ans == 350003 || ans == 350004) { //Add achievements to seams
 		update_EV_dict();
 		if (ev_dict["300"] == 538) {
 			campaignTrail_temp.questions_json[getQuestionNumberFromPk("question36")]=getQuestion("1st_transition_seam");
@@ -784,14 +794,14 @@ cyoAdventure = function (a) {
 	if (ans == 373004) {
 		apply_effect(issue_dict["worldly_conflict"], 0, 0.08);
 	}
-	if (ans == 380001 | ans == 380002 | ans == 380003) {
+	if (ans == 380001 || ans == 380002 || ans == 380003) {
 		campaignTrail_temp.election_json[0].fields.advisor_url = advisor_image["mark"];
 		e.question_number -= 1;
 	}
 	if (ans == 390004) {
 		campaignTrail_temp.questions_json[29]=getQuestion("question39_1");
 	}
-	if (ans == 391001 | ans == 391002 | ans == 391003 | ans == 391004 | ans == 392001 | ans == 392002 | ans == 392003 | ans == 392004 | ans == 393002) {
+	if (ans == 391001 || ans == 391002 || ans == 391003 || ans == 391004 || ans == 392001 || ans == 392002 || ans == 392003 || ans == 392004 || ans == 393002) {
 		campaignTrail_temp.election_json[0].fields.advisor_url = advisor_image["sarah"];
 		e.question_number -= 1;
 	}
