@@ -569,37 +569,49 @@ cyoAdventure = function (a) {
 	}
 	if (ans == 250001 | ans == 250002 | ans == 250003) { // This changes the color switching on Question 25.
 		if (religion == "christian") {
+			campaignTrail_temp.candidate_json[3]["fields"]["first_name"] = "Luca";
 			campaignTrail_temp.candidate_json[3]["fields"]["last_name"] = "Perez";
 			set_candidate_score(303,-0.4,1,-0.3,0.2,-0.6);
+			campaignTrail_temp.candidate_json[2]["fields"]["first_name"] = "Tim";
 			campaignTrail_temp.candidate_json[2]["fields"]["last_name"] = "Jacobs";
 			set_candidate_score(302,0.2,1,0.3,0.4,0.2);
+			campaignTrail_temp.candidate_json[1]["fields"]["first_name"] = "Emilia";
 			campaignTrail_temp.candidate_json[1]["fields"]["last_name"] = "Kelly";
 			set_candidate_score(302,0.7,1,0.7,0.8,0.3);
 			fakevpscreen("perez")
 		}
 		if (religion == "angelic") {
+			campaignTrail_temp.candidate_json[3]["fields"]["first_name"] = "Edward T.";
 			campaignTrail_temp.candidate_json[3]["fields"]["last_name"] = "Roberts";
 			set_candidate_score(303,-0.6,1,-0.7,-0.8,0.5);
+			campaignTrail_temp.candidate_json[3]["fields"]["first_name"] = "John";
 			campaignTrail_temp.candidate_json[2]["fields"]["last_name"] = "King";
 			set_candidate_score(303,-0.3,1,-0.2,-0.6,-0.3);
+			campaignTrail_temp.candidate_json[3]["fields"]["first_name"] = "Emilia";
 			campaignTrail_temp.candidate_json[1]["fields"]["last_name"] = "Kelly";
 			set_candidate_score(302,0.7,1,0.7,0.8,0.3);
 			fakevpscreen("roberts")
 		}
 		if (religion == "secular") {
+			campaignTrail_temp.candidate_json[3]["fields"]["first_name"] = "Luca";
 			campaignTrail_temp.candidate_json[3]["fields"]["last_name"] = "Perez";
 			set_candidate_score(303,-0.4,1,-0.3,0.2,-0.6);
+			campaignTrail_temp.candidate_json[2]["fields"]["first_name"] = "John";
 			campaignTrail_temp.candidate_json[2]["fields"]["last_name"] = "King";
 			set_candidate_score(303,-0.3,1,-0.2,-0.6,-0.3);
+			campaignTrail_temp.candidate_json[1]["fields"]["first_name"] = "Elizabeth";
 			campaignTrail_temp.candidate_json[1]["fields"]["last_name"] = "Haley";
 			set_candidate_score(302,0.7,1,0.3,-0.4,-0.5);
 			fakevpscreen("perez")
 		}
 		if (religion == "antitheist") {
+			campaignTrail_temp.candidate_json[3]["fields"]["first_name"] = "Edward T.";
 			campaignTrail_temp.candidate_json[3]["fields"]["last_name"] = "Roberts";
 			set_candidate_score(303,-0.6,1,-0.7,-0.8,0.5);
+			campaignTrail_temp.candidate_json[2]["fields"]["first_name"] = "Tim";
 			campaignTrail_temp.candidate_json[2]["fields"]["last_name"] = "Jacobs";
 			set_candidate_score(302,0.2,1,0.3,0.4,0.2);
+			campaignTrail_temp.candidate_json[1]["fields"]["first_name"] = "Elizabeth";
 			campaignTrail_temp.candidate_json[1]["fields"]["last_name"] = "Haley";
 			set_candidate_score(302,0.7,1,0.3,-0.4,-0.5);
 			fakevpscreen("roberts")
@@ -708,7 +720,7 @@ cyoAdventure = function (a) {
 			campaignTrail_temp.questions_json[getQuestionNumberFromPk("question36")]=getQuestion("1st_transition_seam");
 			end_the_game = 1;
 			ending = "messup";
-		} else if (pop_dict["300"] > 0.01) {
+		} else if (pop_dict["300"] < 0.01) {
 			campaignTrail_temp.questions_json[getQuestionNumberFromPk("question36")]=getQuestion("1st_transition_seam");
 			end_the_game = 1;
 			ending = "zero_seam";
@@ -18068,7 +18080,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 		reality_seam_theme();
 		return `<span style='color: white;' id="ending_text"><h3>Reality Seam #4</h3><div style='color: white; overflow-y:scroll; height:235px;'><p>REALITY FRAGMENT DETECTED.<br><br>FRAGMENT ID = 4<br><br>“SEAM 4” ACHIEVEMENT GIVEN.<br><br>ACHIEVEMENT CONDITIONS: ACHIEVE 0 ELECTORAL VOTES<br><br>LOG TIMELINE.00001.04, 21041 AD<br><br>“THE FIRST TIMELINE”<br><br>…<br><br>Excerpt from Sarah’s Diaries:<br><br><span style="color:#e1a0ff">“We’ve now survived longer than the Chinese did. Canada is gone, so is Mexico and the Caribbean. It’s only us now, fighting on the edge of our lives. We’ve thinned out their numbers, they’re down to maybe a fifth of the army they’ve started with. But fortress America is in ruins, we’re down to a bunch of heavily fortified bunkers, scattered across the country.<br><br>Mark is dead, the Angels got to him, and they broadcast his execution for Gray to watch. Gray has almost completely fallen apart, I think I’m the last thing tethering him to any form of sanity. Yet he keeps pressing on, he knows his spirit is all that is keeping humanity alive at this point.<br><br>I finally confessed my feelings for Gray. I don’t know if it was because I decided I finally had nothing left to lose, or if I wanted to give him something to hold onto. When I did so, he looked tired and old. “Why did you wait this long?” he finally said. I didn’t know how to answer. The relationship never really took off.<br><br>He talks to me like he talked to Mark sometimes. I wonder if he is trying to fill some kind of hole in his heart. He talks to nothing sometimes, and I try to comfort him when he stares out into space. He’s hardened a lot in the past few years, he’s not the mark, confident leader he was a few years ago, but he’s trying his best.<br><br>I have been hearing voices again. Angels, real angels from above have contacted me. They appear as balls of light, and they’re helping me work on a final project. <span title='Slide a certain slider to the left.' style='background: dimgray;'>With nothing left to lose, I put my trust in them.”</span></span><br><br></p></div></span>`
 	}
-	if (ending == "min_seam") {
+	if (ending == "zero_seam") {
 		setImage("https://i.imgur.com/ReE8gAa.png");
 		audio.src = "https://audio.jukehost.co.uk/Ar3JJsCqTT3sa19CphKWOJhO2wOVWzSv";
 		audio.currentTime = 0;
