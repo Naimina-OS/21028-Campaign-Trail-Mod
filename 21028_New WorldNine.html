@@ -97,23 +97,23 @@ cyoAdventure = function (a) {
 	}
 	if (e.question_number+2 == 21) {
 		polarize(issue_dict["worldly_conflict"], -0.2, 0);
-		polarize(issue_dict["religious"], -0.4, -0.05);
+		polarize(issue_dict["religious"], -0.3, 0);
 		polarize(issue_dict["angels"], -0.1, 0.1);
 	}
 	if (e.question_number+2 == 22) {
 		polarize(issue_dict["worldly_conflict"], -0.2, 0);
-		polarize(issue_dict["religious"], -0.3, -0.05);
+		polarize(issue_dict["religious"], -0.3, 0);
 		polarize(issue_dict["angels"], -0.1, 0.1);
 	}
 	if (e.question_number+2 == 23) {
 		polarize(issue_dict["worldly_conflict"], -0.2, 0);
-		polarize(issue_dict["religious"], -0.2, -0.05);
+		polarize(issue_dict["religious"], -0.2, 0);
 		campaignTrail_temp.election_json[0].fields.advisor_url = advisor_image["sarah"];
 		polarize(issue_dict["angels"], -0.1, 0.1);
 	}
 	if (e.question_number+2 == 24) {
 		polarize(issue_dict["worldly_conflict"], -0.2, 0);
-		polarize(issue_dict["religious"], -0.1, -0.05);
+		polarize(issue_dict["religious"], -0.1, 0);
 		polarize(issue_dict["angels"], -0.1, 0.1);
 	}
 	if (e.question_number+2 == 25) {
@@ -578,6 +578,12 @@ cyoAdventure = function (a) {
 		ending = "stargazing";
 	}
 	if (ans == 250001 || ans == 250002 || ans == 250003) { // This changes the color switching on Question 25.
+		append_achievement("Loudmouth Businessman", "https://i.imgur.com/CgLMHbj.png", "Face off against Luca Perez.", true);
+		append_achievement("Stodgy Old Evangelical", "https://i.imgur.com/qT786yU.png", "Face off against Robert T. Edwards.", true);
+		append_achievement("Soul Singer", "https://i.imgur.com/Do1z5S6.png", "Face off against John King.", true);
+		append_achievement("Quiet Bureaucrat", "https://i.imgur.com/pL2a0aE.png", "Face off against Tim Jacobs.", true);
+		append_achievement("Hopeful Humanitarian", "https://i.imgur.com/Wqa2Kx1.png", "Face off against Emilia Kelly.", true);
+		append_achievement("Enigmatic Travellor", "https://i.imgur.com/elHoDdR.png", "Face off against Elizabeth Haley.", true);
 		if (religion == "christian") {
 			campaignTrail_temp.candidate_json[3]["fields"]["first_name"] = "Luca";
 			campaignTrail_temp.candidate_json[3]["fields"]["last_name"] = "Perez";
@@ -589,6 +595,9 @@ cyoAdventure = function (a) {
 			campaignTrail_temp.candidate_json[1]["fields"]["last_name"] = "Kelly";
 			set_candidate_score(302,0.7,1,0.7,0.8,0.3);
 			fakevpscreen("perez");
+			unlockAchievement("Loudmouth Businessman");
+			unlockAchievement("Quiet Bureaucrat");
+			unlockAchievement("Hopeful Humanitarian");
 		}
 		if (religion == "newage") {
 			campaignTrail_temp.candidate_json[3]["fields"]["first_name"] = "Edward T.";
@@ -601,6 +610,9 @@ cyoAdventure = function (a) {
 			campaignTrail_temp.candidate_json[1]["fields"]["last_name"] = "Kelly";
 			set_candidate_score(302,0.7,1,0.7,0.8,0.3);
 			fakevpscreen("roberts");
+			unlockAchievement("Stodgy Old Evangelical");
+			unlockAchievement("Soul Singer");
+			unlockAchievement("Hopeful Humanitarian");
 		}
 		if (religion == "secular") {
 			campaignTrail_temp.candidate_json[3]["fields"]["first_name"] = "Luca";
@@ -613,6 +625,9 @@ cyoAdventure = function (a) {
 			campaignTrail_temp.candidate_json[1]["fields"]["last_name"] = "Haley";
 			set_candidate_score(302,0.7,1,0.3,-0.4,-0.5);
 			fakevpscreen("perez");
+			unlockAchievement("Loudmouth Businessman");
+			unlockAchievement("Soul Singer");
+			unlockAchievement("Enigmatic Travellor");
 		}
 		if (religion == "antitheist") {
 			campaignTrail_temp.candidate_json[3]["fields"]["first_name"] = "Edward T.";
@@ -625,6 +640,9 @@ cyoAdventure = function (a) {
 			campaignTrail_temp.candidate_json[1]["fields"]["last_name"] = "Haley";
 			set_candidate_score(302,0.7,1,0.3,-0.4,-0.5);
 			fakevpscreen("roberts");
+			unlockAchievement("Stodgy Old Evangelical");
+			unlockAchievement("Hopeful Humanitarian");
+			unlockAchievement("Enigmatic Travellor");
 		}
 	}
 	if (ans == 263004) {
@@ -909,6 +927,15 @@ cyoAdventure = function (a) {
 		campaignTrail_temp.questions_json[getQuestionNumberFromPk("question37")]=getQuestion("question37_indep");
 		campaignTrail_temp.questions_json[getQuestionNumberFromPk("question40")]=getQuestion("question40_indep");
 	}
+}
+
+function append_achievement(name, image, description, cheatable) {
+	allAch["21028"][name]={
+		"image" : image,
+		"description" : description,
+		"cannotBeCheated" : cheatable,
+	}
+	addAllAchievements();
 }
 
 function calculate_pp() { //Calculates political power using a SUPER BALANCED and WELL THOUGHT THROUGH EQUATION
@@ -1931,6 +1958,8 @@ e.vpSwitcher = () => {
 		if (pot_run_mat[0].fields.first_name == "Sarah"){
 			imageslide("https://i.imgur.com/n9SHAy9.png", true, "none");
 			dark_earth_theme();
+			append_achievement("Hello World!", "https://i.imgur.com/pRXM2ku.png", "Meet Sarah Webster.", true);
+			unlockAchievement("Hello World!");
 		}
 		$("#inner_window_4").remove();
 		changeGameDisp(false);
