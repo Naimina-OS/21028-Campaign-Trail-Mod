@@ -2,20 +2,30 @@
 audio1.volume = 1;
 audio1.loop = true;
 audio1.play(); */
-
+RecReading=true
 e = campaignTrail_temp;
+
+e.mod_achievements = true;
+campaignTrail_temp.achievements = {
+	"Everywhere at the End of Time" : {
+        "image" : "https://i.imgur.com/2K4r2lL.png",
+        "description" : "Finish the game.",
+        "cannotBeCheated" : true
+    },
+}
+
 e.collect_results = true;
 e.election_json = [
 	{
 		"model":"campaign_trail.election",
 		"pk": 21,
 		"fields": {
-			"year": 2020,
+			"year": 21028,
 			"summary": "<span id='21028description' style='display: initial;'><div style='overflow-y:scroll;height:200px;'>(Epilepsy Warning, this mod will contain flashing images.)<br><br>&lt;System Check Tick, all systems clear,&gt;<br><br>The year is 21,028.<br><br>…<br><br>&lt;System Check Tick, all systems clear,&gt;<br><br>It has been over 19,000 years since the dawn of the New World. <br><br>…<br><br></div><br><button onclick='show()'>About 17776/20021</button></span><span id='17776description' style='display: none;overflow-y:scroll;height:213px;'><div style='overflow-y:scroll;height:200px;'>On April 7th, 2026, humanity stopped aging, and no new babies could be conceived. Soon after that, the nano system went online, protecting humans from all forms of harm, and ensuring no human would ever die again. Since then, human cultural progress has mostly stagnated, with all the old generations having culturally stagnated around the world of the 2020’s.<br><br>Humans have given up the pursuit of conquest and ambition, instead contenting themselves with the act of endless leisure and recreation. The original story of 17776 and its sequel, 20020, are written by Jon Bois, and this mod is a fan-work set in this timeline in the year 21028.<br><br></div><br><button onclick='back()'>Back</button></span>",
 			"image_url": "https://i.imgur.com/5YD6nnp.png",
 			"winning_electoral_vote_number":270,
 			"advisor_url":"",
-			"recommended_reading":"",
+			"recommended_reading":`<a href="https://www.sbnation.com/a/17776-football">17776 Original</a>, <a href="https://www.sbnation.com/c/secret-base/21410129/20020">20020 Original</a>, <a href="https://www.biblegateway.com/passage/?search=Ezekiel+1%3A1-28&version=ESV">The Holy Bible</a>`,
 			"has_visits":0,
 			"no_electoral_majority_image":"../static/images/2012-no-majority.jpg"}}];
 
@@ -640,7 +650,7 @@ function newMusicPlayer() {
     buttons[newSel].click()
   }
 
-  for (w = 0; w < 7; w++) {
+  for (let counter = 0; counter < 7; counter++) {
     document.getElementById("trackSelParent").appendChild(document.createElement("br"))
   }
   
