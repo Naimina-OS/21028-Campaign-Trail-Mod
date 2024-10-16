@@ -445,7 +445,7 @@ cyoAdventure = function (a) {
 	if (ans == 210001) {
 		apply_effect(issue_dict["religious"], -1, 0.04);
 		apply_effect(issue_dict["angels"], -1, 0.04);
-		religion = "new age";
+		religion = "newage";
 		console.log(ans);
 		if (alignment == "old world") {
 			e.questions_json[getQuestionNumberFromPk("question26")]=getQuestion("intro roberts");
@@ -456,13 +456,13 @@ cyoAdventure = function (a) {
 		if (alignment == "new world") {
 			e.questions_json[getQuestionNumberFromPk("question26")]=getQuestion("intro kelly");
 		}
-		e.questions_json[getQuestionNumberFromPk("question27")]=getQuestion("campaign1 angelic");
-		e.questions_json[getQuestionNumberFromPk("question29")]=getQuestion("campaign2 angelic");
-		e.questions_json[getQuestionNumberFromPk("question30")]=getQuestion("campaign3 angelic");
-		e.questions_json[getQuestionNumberFromPk("question31")]=getQuestion("campaign4 angelic");
-		e.questions_json[getQuestionNumberFromPk("question32")]=getQuestion("campaign5 angelic");
-		e.questions_json[getQuestionNumberFromPk("question33")]=getQuestion("endorsement angelic");
-		e.questions_json[getQuestionNumberFromPk("question34")]=getQuestion("debate angelic");
+		e.questions_json[getQuestionNumberFromPk("question27")]=getQuestion("campaign1 newage");
+		e.questions_json[getQuestionNumberFromPk("question29")]=getQuestion("campaign2 newage");
+		e.questions_json[getQuestionNumberFromPk("question30")]=getQuestion("campaign3 newage");
+		e.questions_json[getQuestionNumberFromPk("question31")]=getQuestion("campaign4 newage");
+		e.questions_json[getQuestionNumberFromPk("question32")]=getQuestion("campaign5 newage");
+		e.questions_json[getQuestionNumberFromPk("question33")]=getQuestion("endorsement newage");
+		e.questions_json[getQuestionNumberFromPk("question34")]=getQuestion("debate newage");
 		ow_candidate = "Edward T. Roberts";
 		in_candidate = "John King";
 		nw_candidate = "Emilia Kelly";
@@ -530,7 +530,7 @@ cyoAdventure = function (a) {
 	}
 	if (ans == 210004) {
 		apply_effect(issue_dict["religious"], 1, 0.08);
-		religion = "anti-theist";
+		religion = "antitheist";
 		console.log(ans);
 		if (alignment == "old world") {
 			e.questions_json[getQuestionNumberFromPk("question26")]=getQuestion("intro roberts");
@@ -588,9 +588,9 @@ cyoAdventure = function (a) {
 			campaignTrail_temp.candidate_json[1]["fields"]["first_name"] = "Emilia";
 			campaignTrail_temp.candidate_json[1]["fields"]["last_name"] = "Kelly";
 			set_candidate_score(302,0.7,1,0.7,0.8,0.3);
-			fakevpscreen("perez")
+			fakevpscreen("perez");
 		}
-		if (religion == "angelic") {
+		if (religion == "newage") {
 			campaignTrail_temp.candidate_json[3]["fields"]["first_name"] = "Edward T.";
 			campaignTrail_temp.candidate_json[3]["fields"]["last_name"] = "Roberts";
 			set_candidate_score(303,-0.6,1,-0.7,-0.8,0.5);
@@ -600,7 +600,7 @@ cyoAdventure = function (a) {
 			campaignTrail_temp.candidate_json[3]["fields"]["first_name"] = "Emilia";
 			campaignTrail_temp.candidate_json[1]["fields"]["last_name"] = "Kelly";
 			set_candidate_score(302,0.7,1,0.7,0.8,0.3);
-			fakevpscreen("roberts")
+			fakevpscreen("roberts");
 		}
 		if (religion == "secular") {
 			campaignTrail_temp.candidate_json[3]["fields"]["first_name"] = "Luca";
@@ -612,7 +612,7 @@ cyoAdventure = function (a) {
 			campaignTrail_temp.candidate_json[1]["fields"]["first_name"] = "Elizabeth";
 			campaignTrail_temp.candidate_json[1]["fields"]["last_name"] = "Haley";
 			set_candidate_score(302,0.7,1,0.3,-0.4,-0.5);
-			fakevpscreen("perez")
+			fakevpscreen("perez");
 		}
 		if (religion == "antitheist") {
 			campaignTrail_temp.candidate_json[3]["fields"]["first_name"] = "Edward T.";
@@ -624,7 +624,7 @@ cyoAdventure = function (a) {
 			campaignTrail_temp.candidate_json[1]["fields"]["first_name"] = "Elizabeth";
 			campaignTrail_temp.candidate_json[1]["fields"]["last_name"] = "Haley";
 			set_candidate_score(302,0.7,1,0.3,-0.4,-0.5);
-			fakevpscreen("roberts")
+			fakevpscreen("roberts");
 		}
 	}
 	if (ans == 263004) {
@@ -691,7 +691,7 @@ cyoAdventure = function (a) {
 		religious_subalignment = "technocratic newage";
 	}
 	if (ans == 302003) {
-		religious_subalignment = "angelic newage";
+		religious_subalignment = "newage newage";
 	}
 	if (ans == 302004) {
 		religious_subalignment = "gnostic newage";
@@ -863,7 +863,7 @@ cyoAdventure = function (a) {
 		imageslide("https://i.imgur.com/JIL9ffM.png", false);
 	}
 	if (ans == 440001) {
-		megaproject = "angelic megaproject";
+		megaproject = "newage megaproject";
 	}
 	if (ans == 440002) {
 		megaproject = "communications array";
@@ -960,14 +960,14 @@ function update_dynamic_questions() {
 	if (religion == "christian") {
 		faction2 = "Christian Revivalists";
 	}
-	if (religion == "new age") {
+	if (religion == "newage") {
 		faction2 = "Esoteric Movements";
 	}
 	if (religion == "secular") {
 		faction2 = "Secularists";
 	}
-	if (religion == "anti-theist") {
-		faction2 = "Anti-Theists";
+	if (religion == "antitheist") {
+		faction2 = "antitheists";
 	}
 	console.log(religion);
 	campaignTrail_temp.answer_feedback_json[getAnswerFeedbackNumberFromPk("f 430001")].fields.answer_feedback = `
@@ -1405,7 +1405,7 @@ function randomize_states() {
 			campaignTrail_temp.state_issue_score_json[n]["fields"]["state_issue_score"] = partisan_lean_dict[state_id];
 		}
 		if (campaignTrail_temp.state_issue_score_json[n]["fields"]["issue"] == 114) {
-			campaignTrail_temp.state_issue_score_json[n]["fields"]["state_issue_score"] = angelic_lean_dict[state_id];
+			campaignTrail_temp.state_issue_score_json[n]["fields"]["state_issue_score"] = newage_lean_dict[state_id];
 		}
 	}
 }
@@ -1910,10 +1910,10 @@ e.vpSwitcher = () => {
 		if (pot_run_mat[0].fields.first_name == "Tim" && religion == "christian"){
 			fakevpscreen("kelly")
 		}
-		if (pot_run_mat[0].fields.first_name == "Edward" && religion == "angelic"){
+		if (pot_run_mat[0].fields.first_name == "Edward" && religion == "newage"){
 			fakevpscreen("king")
 		}
-		if (pot_run_mat[0].fields.first_name == "John" && religion == "angelic"){
+		if (pot_run_mat[0].fields.first_name == "John" && religion == "newage"){
 			fakevpscreen("kelly")
 		}
 		if (pot_run_mat[0].fields.first_name == "Luca" && religion == "secular"){
@@ -2375,7 +2375,7 @@ campaignTrail_temp.questions_json = [
         "pk": "intro roberts",
         "fields": {
             "priority": 0,
-            "description": "The Old World Republican Party has elected Evangelical Edward T. Roberts as their candidate. As both Old Worlders, Roberts is fighting hard to take the crown of leader of the Old World movement away from you. He’s making a play for the nationalists, appealing to an idea of a long-lost Christian America which, if elected, he would return to. How do you counter this?",
+            "description": "The Old World Republican Party has elected Evnewageal Edward T. Roberts as their candidate. As both Old Worlders, Roberts is fighting hard to take the crown of leader of the Old World movement away from you. He’s making a play for the nationalists, appealing to an idea of a long-lost Christian America which, if elected, he would return to. How do you counter this?",
             "likelihood": 1
         }
     },
@@ -2436,7 +2436,7 @@ campaignTrail_temp.questions_json = [
     },
 	{
         "model": "campaign_trail.question",
-        "pk": "campaign1 angelic",
+        "pk": "campaign1 newage",
         "fields": {
             "priority": 0,
             "description": "The real campaign finally kicks off, and everyone is off to the races. You see that the New Worlders have nominated Emilia Kelly, and the Reform Independents John King. You’ve scrounged up just enough advertising time to fire off the first round in what will certainly soon become a political quagmire. What are your opening shots, and how do you start this race?",
@@ -2457,7 +2457,7 @@ campaignTrail_temp.questions_json = [
         "pk": "campaign1 antitheist",
         "fields": {
             "priority": 0,
-            "description": "The real campaign finally kicks off, and everyone is off to the races. The major parties have picked their candidates. The Old Worlders picked that stodgy Evangelical, Roberts. The Reform Independents that plastic bureaucrat, Jacobs. And the New Worlders that ditzy brat, Elizabeth Haley. Pathetic. It looks like you’re in the clear to fire the first shots. How do you start this race?",
+            "description": "The real campaign finally kicks off, and everyone is off to the races. The major parties have picked their candidates. The Old Worlders picked that stodgy Evnewageal, Roberts. The Reform Independents that plastic bureaucrat, Jacobs. And the New Worlders that ditzy brat, Elizabeth Haley. Pathetic. It looks like you’re in the clear to fire the first shots. How do you start this race?",
             "likelihood": 1
         }
     },
@@ -2500,10 +2500,10 @@ campaignTrail_temp.questions_json = [
     },
 	{
         "model": "campaign_trail.question",
-        "pk": "campaign2 angelic",
+        "pk": "campaign2 newage",
         "fields": {
             "priority": 0,
-            "description": "Roberts, the Old World Evangelical has begun an attack on you, holding your feet to the fire. He doesn’t trust in the benevolence of the Angels, who he sees as extraterrestrial demons. Launching ads that remind Americans that even Lucifer was an angel, he threatens to splinter off Christians out of your highly diverse esoteric voterbase. How do you respond?",
+            "description": "Roberts, the Old World Evnewageal has begun an attack on you, holding your feet to the fire. He doesn’t trust in the benevolence of the Angels, who he sees as extraterrestrial demons. Launching ads that remind Americans that even Lucifer was an angel, he threatens to splinter off Christians out of your highly diverse esoteric voterbase. How do you respond?",
             "likelihood": 1
         }
     },
@@ -2537,7 +2537,7 @@ campaignTrail_temp.questions_json = [
     },
 	{
         "model": "campaign_trail.question",
-        "pk": "campaign3 angelic",
+        "pk": "campaign3 newage",
         "fields": {
             "priority": 0,
             "description": "Throughout this entire campaign, your strategy of a big-tent coalition has seemed rather aimless and held together largely based on vibes. The competition with your rivals only gets more fierce by the day, and they may chip away at your movement if it’s too soft. Do you wish to more rigidly define what you are for?",
@@ -2558,7 +2558,7 @@ campaignTrail_temp.questions_json = [
         "pk": "campaign3 antitheist",
         "fields": {
             "priority": 0,
-            "description": "In what seems to be a coordinated attack against your campaign, you have suddenly found Roberts, Jacobs, and Haley creating a kind of united front against you. Helping the issue is that Roberts, Jacobs, and Haley are all some flavor of religious, and as a self-proclaimed anti-theist, they see you as a threat. The first attacks to come out are from Jacobs, saying you’re a threat to First Amendment religious freedom. How do you respond?",
+            "description": "In what seems to be a coordinated attack against your campaign, you have suddenly found Roberts, Jacobs, and Haley creating a kind of united front against you. Helping the issue is that Roberts, Jacobs, and Haley are all some flavor of religious, and as a self-proclaimed antitheist, they see you as a threat. The first attacks to come out are from Jacobs, saying you’re a threat to First Amendment religious freedom. How do you respond?",
             "likelihood": 1
         }
     },
@@ -2573,7 +2573,7 @@ campaignTrail_temp.questions_json = [
     },
 	{
         "model": "campaign_trail.question",
-        "pk": "campaign4 angelic",
+        "pk": "campaign4 newage",
         "fields": {
             "priority": 0,
             "description": "You’re being attacked by King… But in the strangest way. He almost looks… Reluctant. “I believe Patterson is a good dude but… Man, just the Angels…” he says on a prominent podcast. “I disagree with him, but I respect him, you know?” How do you respond to this, if at all?",
@@ -2610,7 +2610,7 @@ campaignTrail_temp.questions_json = [
     },
 	{
         "model": "campaign_trail.question",
-        "pk": "campaign5 angelic",
+        "pk": "campaign5 newage",
         "fields": {
             "priority": 0,
             "description": "The campaign period is reaching its end, with the debates not so far away. Just weeks until you’ll have to face every candidate on the largest stage of them all, and the election itself not so far after that. In the chaos, you found some peace and quiet. How do you want to spend this opportunity?",
@@ -2619,7 +2619,7 @@ campaignTrail_temp.questions_json = [
     },
 	{
         "model": "campaign_trail.question",
-        "pk": "campaign5 angelic_king_happy",
+        "pk": "campaign5 newage_king_happy",
         "fields": {
             "priority": 0,
             "description": "The campaign period is reaching its end, with the debates not so far away. Just weeks until you’ll have to face every candidate on the largest stage of them all, and the election itself not so far after that. In the chaos, you found some peace and quiet. How do you want to spend this opportunity?",
@@ -2664,7 +2664,7 @@ campaignTrail_temp.questions_json = [
     },
 	{
         "model": "campaign_trail.question",
-        "pk": "endorsement angelic",
+        "pk": "endorsement newage",
         "fields": {
             "priority": 0,
             "description": "With the elections looking to be a 4-way chaotic race, many voters are planning on voting strategically. Already, various lobbying organizations, from all shapes and colors, have released detailed guides on who they recommend they vote for, depending on the state. Some are wondering if you want to release your own voting strategy. Who do you endorse if the voters want to vote strategically?",
@@ -2700,7 +2700,7 @@ campaignTrail_temp.questions_json = [
     },
 	{
         "model": "campaign_trail.question",
-        "pk": "debate angelic",
+        "pk": "debate newage",
         "fields": {
             "priority": 0,
             "description": "The big night has come, and with an unprecedented situation, with a record 4 candidates, all at roughly 25% of the score. Standing behind a podium, facing down your opponents, what is your strategy going into this debate?",
@@ -3853,7 +3853,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 272001,
         "fields": {
-            "question": "campaign1 angelic",
+            "question": "campaign1 newage",
             "description": "It’s obvious. The Angels are the ones who got us here, the Angels are the one special issue no one else can touch. Campaign on that, and remind the American people what is at stake when dealing with First Contact with another species.",
         }
     },
@@ -3861,15 +3861,15 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 272002,
         "fields": {
-            "question": "campaign1 angelic",
-            "description": "I’m not just the candidate of the Angelic religious movements, I’m a part of a much wider religious movement that rejects the dogma of the past. We live in a new era, but the basic truths of spirituality haven’t changed. I’m here to create a space for faiths that look forward, not look back.",
+            "question": "campaign1 newage",
+            "description": "I’m not just the candidate of the newage religious movements, I’m a part of a much wider religious movement that rejects the dogma of the past. We live in a new era, but the basic truths of spirituality haven’t changed. I’m here to create a space for faiths that look forward, not look back.",
         }
     },
 	{
         "model": "campaign_trail.answer",
         "pk": 272003,
         "fields": {
-            "question": "campaign1 angelic",
+            "question": "campaign1 newage",
             "description": "We’re an outsider countercultural movement completely perpendicular to the causes and politics that defines all three of the other candidates. We really can’t compete with them in the same way, so it’s more important we build up the movement, not attack them.",
         }
     },
@@ -3877,8 +3877,8 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 272004,
         "fields": {
-            "question": "campaign1 angelic",
-            "description": "We need to take the pre-emptive strike and attack the other candidates. Kelly, for being an uptight materialist, King, for being a narrow-minded Christian, and Roberts, for being a stuffy old Evangelical.",
+            "question": "campaign1 newage",
+            "description": "We need to take the pre-emptive strike and attack the other candidates. Kelly, for being an uptight materialist, King, for being a narrow-minded Christian, and Roberts, for being a stuffy old Evnewageal.",
         }
     },
 	{
@@ -4046,7 +4046,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 292001,
         "fields": {
-            "question": "campaign2 angelic",
+            "question": "campaign2 newage",
             "description": "He’s right. My grip on the Christian vote is not as solid as I would like it to be. For that. I will need someone else to help me. A good Christian who isn’t so scared of change… For that, I will need King.",
         }
     },
@@ -4054,7 +4054,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 292002,
         "fields": {
-            "question": "campaign2 angelic",
+            "question": "campaign2 newage",
             "description": "Promoting hostility like this is just a recipe for strained relations, or worse, war. We have to strike a reconciliatory tone with the Angels beyond the stars, what we do today will echo throughout all of human history.",
         }
     },
@@ -4062,7 +4062,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 292003,
         "fields": {
-            "question": "campaign2 angelic",
+            "question": "campaign2 newage",
             "description": "Angels are what made Lucifer? Based! All the more reason to support them then.",
         }
     },
@@ -4070,8 +4070,8 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 292004,
         "fields": {
-            "question": "campaign2 angelic",
-            "description": "To repeat, I’m not just a candidate of the Angelic religious movements. We represent a wide range of New Age religious movements who unlike you, have adapted to the new world. Even if we go back to the Old World, not everything can just retvrn back to normal. If the Angels are a threat, I will take all necessary action as required.",
+            "question": "campaign2 newage",
+            "description": "To repeat, I’m not just a candidate of the newage religious movements. We represent a wide range of New Age religious movements who unlike you, have adapted to the new world. Even if we go back to the Old World, not everything can just retvrn back to normal. If the Angels are a threat, I will take all necessary action as required.",
         }
     },
 	{
@@ -4174,7 +4174,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 302001,
         "fields": {
-            "question": "campaign3 angelic",
+            "question": "campaign3 newage",
             "description": "Nah. I mean… If the big tent works, it works. We’re a movement open to all. Just be chill, or something. Don’t fix what isn’t broken, right guys?",
         }
     },
@@ -4182,7 +4182,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 302002,
         "fields": {
-            "question": "campaign3 angelic",
+            "question": "campaign3 newage",
             "description": "It’s become clear to me that the paranormal and supernatural are very real. My mission would be one of peeling away this veil of ignorance and investigating the supernatural that lies before us.",
         }
     },
@@ -4190,7 +4190,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 302003,
         "fields": {
-            "question": "campaign3 angelic",
+            "question": "campaign3 newage",
             "description": "Simply put. We believe the Angels are entities worthy of veneration. Recorded and misinterpreted throughout history in numerous texts, such as the Bible. The Angels have come and will bring us to paradise. We plan to put ourselves at their service.",
         }
     },
@@ -4198,7 +4198,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 302004,
         "fields": {
-            "question": "campaign3 angelic",
+            "question": "campaign3 newage",
             "description": "We’re here to make an escape from this world. To seek out the hidden knowledge, Gnosis, and to disentangle our spiritual bodies from this physical world, man.",
         }
     },
@@ -4302,7 +4302,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 312001,
         "fields": {
-            "question": "campaign4 angelic",
+            "question": "campaign4 newage",
             "description": "No comment.",
         }
     },
@@ -4310,7 +4310,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 312002,
         "fields": {
-            "question": "campaign4 angelic",
+            "question": "campaign4 newage",
             "description": "Remind him that our tent is vast, and our coalition is open to him. He’s a cool guy as well. I think our movements can get along, I really do.",
         }
     },
@@ -4318,7 +4318,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 312003,
         "fields": {
-            "question": "campaign4 angelic",
+            "question": "campaign4 newage",
             "description": "Promote this everywhere we go. Even King thinks I’m a good candidate.",
         }
     },
@@ -4422,7 +4422,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 322001,
         "fields": {
-            "question": "campaign5 angelic",
+            "question": "campaign5 newage",
             "description": "Go on the offensive with Roberts. He’s the biggest threat to me at the moment, and his reactionary beliefs threatens everything we hold dear. Wedge him with the moderate Christians."
         }
     },
@@ -4430,7 +4430,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 322002,
         "fields": {
-            "question": "campaign5 angelic",
+            "question": "campaign5 newage",
             "description": "Go on the offensive with Jacobs. He’s been too quiet this campaign season, and we haven’t been able to properly attack him yet this term.",
         }
     },
@@ -4438,7 +4438,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 322003,
         "fields": {
-            "question": "campaign5 angelic",
+            "question": "campaign5 newage",
             "description": "Go on the offensive with Kelly. Parts of her New World voterbase is quite compatible with mine. If elected, I’ll make sure to keep the metaphorical party going. Come on, you know you want to.",
         }
     },
@@ -4446,7 +4446,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 322004,
         "fields": {
-            "question": "campaign5 angelic",
+            "question": "campaign5 newage",
             "description": "You host a party that goes on all night. Music, drinks, and substances. Night gives way to morning, and rising sun smiles upon you all. And you can’t help but think, what a wonderful world.",
         }
     },
@@ -4454,7 +4454,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 322005,
         "fields": {
-            "question": "campaign5 angelic_king_happy",
+            "question": "campaign5 newage_king_happy",
             "description": "Go on the offensive with Roberts. He’s the biggest threat to me at the moment, and his reactionary beliefs threatens everything we hold dear. Wedge him with the moderate Christians."
         }
     },
@@ -4462,7 +4462,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 322006,
         "fields": {
-            "question": "campaign5 angelic_king_happy",
+            "question": "campaign5 newage_king_happy",
             "description": "Go on the offensive with Jacobs. He’s been too quiet this campaign season, and we haven’t been able to properly attack him yet this term.",
         }
     },
@@ -4470,7 +4470,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 322007,
         "fields": {
-            "question": "campaign5 angelic_king_happy",
+            "question": "campaign5 newage_king_happy",
             "description": "Go on the offensive with Kelly. Parts of her New World voterbase is quite compatible with mine. If elected, I’ll make sure to keep the metaphorical party going. Come on, you know you want to.",
         }
     },
@@ -4478,7 +4478,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 322008,
         "fields": {
-            "question": "campaign5 angelic_king_happy",
+            "question": "campaign5 newage_king_happy",
             "description": "You host a party that goes on all night. Music, drinks, and substances. Night gives way to morning, and rising sun smiles upon you all. And you can’t help but think, what a wonderful world.",
         }
     },
@@ -4590,7 +4590,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 332001,
         "fields": {
-            "question": "endorsement angelic",
+            "question": "endorsement newage",
             "description": "No one. Just keep pressing forward as we always have. If other candidates want to lend me strategic votes, that’s swell. I’m in it to win this thing.",
         }
     },
@@ -4598,7 +4598,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 332002,
         "fields": {
-            "question": "endorsement angelic",
+            "question": "endorsement newage",
             "description": "Roberts. If it looks like I’m underwater, then our best bet is to strategically block King and Kelly from getting enough seats. This election is really going down to the wire, and this is the most strategic choice.",
         }
     },
@@ -4606,7 +4606,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 332003,
         "fields": {
-            "question": "endorsement angelic",
+            "question": "endorsement newage",
             "description": "King. Who else. He looks like he really cares. And even if he won’t be the best president, he’s a good man. If you want my opinion, you can’t go wrong voting for him. Let’s pull our votes out of places that could threaten King.",
         }
     },
@@ -4614,7 +4614,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 332004,
         "fields": {
-            "question": "endorsement angelic",
+            "question": "endorsement newage",
             "description": "Kelly, she’s by far the one with the best experience in this race. And if nothing else, she has the spirit and the will to fix some of them. She’s been looking to prove herself for so long, and if I’m not the one to make it, then let’s give her a chance.",
         }
     },
@@ -4678,7 +4678,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 342001,
         "fields": {
-            "question": "debate angelic",
+            "question": "debate newage",
             "description": "Ignore the other candidates and focus on the issues. This election is centered around the Angels, and the Angel issue is the one area I have an advantage. This election isn’t one of dozens of candidates, it’s me against the crowd.",
         }
     },
@@ -4686,7 +4686,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 342002,
         "fields": {
-            "question": "debate angelic",
+            "question": "debate newage",
             "description": "Relate the questions to my own personal story. Forget this Washington nonsense, I want to use this debate to forge a one-to-one, personal connection to the people at home.",
         }
     },
@@ -4694,7 +4694,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 342003,
         "fields": {
-            "question": "debate angelic",
+            "question": "debate newage",
             "description": "Act aggressively. It’s time we went on the offensive. Let’s show the American people I’m a mark leader, an attack dog. I’m not just an ex-university student out of his depth. I’m a serious leader who can hold my own.",
         }
     },
@@ -4702,7 +4702,7 @@ campaignTrail_temp.answers_json = [
         "model": "campaign_trail.answer",
         "pk": 342004,
         "fields": {
-            "question": "debate angelic",
+            "question": "debate newage",
             "description": "I can’t do it… Mark, maybe you could try? At the very least, you’ll do a better job than I could.",
         }
     },
@@ -6255,7 +6255,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 272002,
             "candidate": 300,
-            "answer_feedback": `Very interesting strategy. The Angelic spiritual movements were not the only religious movements to come out of the post-Contact religious boom. From the Neo-Gnostics, Singularians, and many other New Age movements, it’s clear your coalition is a rainbow of diversity.`
+            "answer_feedback": `Very interesting strategy. The newage spiritual movements were not the only religious movements to come out of the post-Contact religious boom. From the Neo-Gnostics, Singularians, and many other New Age movements, it’s clear your coalition is a rainbow of diversity.`
         }
     },
 	{
@@ -6516,7 +6516,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 292004,
             "candidate": 300,
-            "answer_feedback": `Your distancing from the Angelic religious movements does not go unnoticed, and Roberts is thought to have actually broken through to you. Your support among the Angelic religious movements definitely cools, but they stick with you.`
+            "answer_feedback": `Your distancing from the newage religious movements does not go unnoticed, and Roberts is thought to have actually broken through to you. Your support among the newage religious movements definitely cools, but they stick with you.`
         }
     },
 	{
@@ -6579,7 +6579,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 294003,
             "candidate": 300,
-            "answer_feedback": `You launch campaign ad after campaign ad, fearmongering about the regressive tendencies of Roberts. Though shocker, an anti-theist and an Evangelical Christian have almost no voter overlap. But you pissed off the wrong person, and the reaction begins.`
+            "answer_feedback": `You launch campaign ad after campaign ad, fearmongering about the regressive tendencies of Roberts. Though shocker, an antitheist and an Evnewageal Christian have almost no voter overlap. But you pissed off the wrong person, and the reaction begins.`
         }
     },
 	{
@@ -6651,7 +6651,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 302003,
             "candidate": 300,
-            "answer_feedback": `You appeal as much as possible to the Angelic cultist sect, to the point it becomes your defining identity. You definitely bleed voters with this choice, but you no longer care of the ways of this world. The new, new world is coming, and it is beautiful.`
+            "answer_feedback": `You appeal as much as possible to the newage cultist sect, to the point it becomes your defining identity. You definitely bleed voters with this choice, but you no longer care of the ways of this world. The new, new world is coming, and it is beautiful.`
         }
     },
 	{
@@ -7202,7 +7202,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 342001,
             "candidate": 300,
-            "answer_feedback": `This backfires. You’re already seen as weird for aligning with the Angelic cultist crowd, and this doesn’t help. Particularly incensed was Roberts, who quoted 15 different Bible verses at you until you snapped at him. The post-debate polls say he won.`
+            "answer_feedback": `This backfires. You’re already seen as weird for aligning with the newage cultist crowd, and this doesn’t help. Particularly incensed was Roberts, who quoted 15 different Bible verses at you until you snapped at him. The post-debate polls say he won.`
         }
     },
 	{
@@ -7283,7 +7283,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 344002,
             "candidate": 300,
-            "answer_feedback": `In a debate filled with eccentric characters, between you, Jacobs, and Haley, Roberts was able to stand out above the crowd. His devoted, evangelical way of speaking broke through to the American people. His story overpowered yours, and post-debate polls say he won by far.`
+            "answer_feedback": `In a debate filled with eccentric characters, between you, Jacobs, and Haley, Roberts was able to stand out above the crowd. His devoted, evnewageal way of speaking broke through to the American people. His story overpowered yours, and post-debate polls say he won by far.`
         }
     },
 	{
@@ -7436,7 +7436,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 371003,
             "candidate": 300,
-            "answer_feedback": `The Angel problem is the elephant in the room. Even if the Old Worlder conflict could be resolved, dealing with a potentially hostile Angelic civilization would be whole nother problem.`
+            "answer_feedback": `The Angel problem is the elephant in the room. Even if the Old Worlder conflict could be resolved, dealing with a potentially hostile newage civilization would be whole nother problem.`
         }
     },
 	{
@@ -7472,7 +7472,7 @@ campaignTrail_temp.answer_feedback_json = [
         "fields": {
             "answer": 372003,
             "candidate": 300,
-            "answer_feedback": `You appeal to the newly forming Angelic religious movements popping up across the country. The Angels, if they are listening, must be pleased in finding a cooperative partner.`
+            "answer_feedback": `You appeal to the newly forming newage religious movements popping up across the country. The Angels, if they are listening, must be pleased in finding a cooperative partner.`
         }
     },
 	{
@@ -11353,7 +11353,7 @@ partisan_lean_dict = {
 	"nebraska-2": 0,
 	"nebraska-3": -0.9,
 }
-angelic_lean_dict = {
+newage_lean_dict = {
 	"alabama": -0.1,
 	"alaska": 0.2,
 	"arizona": 0.0,
