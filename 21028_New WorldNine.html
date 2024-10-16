@@ -1272,7 +1272,7 @@ function newMusicPlayer() {
     buttons[newSel].click()
   }
 
-  for (w = 0; w < 7; w++) {
+  for (let counter = 0; counter < 7; counter++) {
     document.getElementById("trackSelParent").appendChild(document.createElement("br"))
   }
   
@@ -3084,6 +3084,7 @@ campaignTrail_temp.answers_json = [
         "fields": {
             "question": "question7",
             "description": "Take another look at the notes, maybe there’s something we haven’t tried.",
+			"condition": "campaignTrail_temp.player_answers.indexOf(70001) == -1"
         }
     },
 	{
@@ -3092,6 +3093,7 @@ campaignTrail_temp.answers_json = [
         "fields": {
             "question": "question7",
             "description": "Try to encourage them, go get them refreshments and pillows.",
+			"condition": "campaignTrail_temp.player_answers.indexOf(70002) == -1"
         }
     },
 	{
@@ -6557,7 +6559,7 @@ campaignTrail_temp.answer_feedback_json = [
         "model": "campaign_trail.answer_feedback",
         "pk": "f 294001",
         "fields": {
-            "answer": 293001,
+            "answer": 294001,
             "candidate": 300,
             "answer_feedback": `The silence is beautiful. You feel like a thousand men, standing over the precipice of a new world. Everything is right, everything is as it should be. That is, until the response comes, and it hits you like an incoming train.`
         }
@@ -6566,7 +6568,7 @@ campaignTrail_temp.answer_feedback_json = [
         "model": "campaign_trail.answer_feedback",
         "pk": "f 294002",
         "fields": {
-            "answer": 293002,
+            "answer": 294002,
             "candidate": 300,
             "answer_feedback": `You unleash campaign ad after campaign ad on the eccentricities of Haley, about her promotion of alternative medicines, and her strange beliefs on UFOs and religion. Somewhere, someone decides enough is enough, and the reaction begins, all at once.`
         }
@@ -6575,7 +6577,7 @@ campaignTrail_temp.answer_feedback_json = [
         "model": "campaign_trail.answer_feedback",
         "pk": "f 294003",
         "fields": {
-            "answer": 293003,
+            "answer": 294003,
             "candidate": 300,
             "answer_feedback": `You launch campaign ad after campaign ad, fearmongering about the regressive tendencies of Roberts. Though shocker, an anti-theist and an Evangelical Christian have almost no voter overlap. But you pissed off the wrong person, and the reaction begins.`
         }
@@ -6584,7 +6586,7 @@ campaignTrail_temp.answer_feedback_json = [
         "model": "campaign_trail.answer_feedback",
         "pk": "f 294004",
         "fields": {
-            "answer": 293004,
+            "answer": 294004,
             "candidate": 300,
             "answer_feedback": `Jacobs is normally a pretty reserved individual. But he sees his Jewishness, or as he calls it, “Jew-ish”-ness is a private affair for him and him alone. This definitely stoked a fire in him. And just as quickly, the backlash begins.`
         }
@@ -6701,7 +6703,7 @@ campaignTrail_temp.answer_feedback_json = [
         "model": "campaign_trail.answer_feedback",
         "pk": "f 304001",
         "fields": {
-            "answer": 303001,
+            "answer": 304001,
             "candidate": 300,
             "answer_feedback": `Gray, this is not going to look good in front of the Supreme Court in a few months.`
         }
@@ -6710,7 +6712,7 @@ campaignTrail_temp.answer_feedback_json = [
         "model": "campaign_trail.answer_feedback",
         "pk": "f 304002",
         "fields": {
-            "answer": 303002,
+            "answer": 304002,
             "candidate": 300,
             "answer_feedback": `While this is technically correct, a lot of people remain skeptical of your previous comments on religion. And you can’t exactly blame them for being worried.`
         }
@@ -6719,7 +6721,7 @@ campaignTrail_temp.answer_feedback_json = [
         "model": "campaign_trail.answer_feedback",
         "pk": "f 304003",
         "fields": {
-            "answer": 303003,
+            "answer": 304003,
             "candidate": 300,
             "answer_feedback": `By fudging the definition a little bit, you’ve managed to change this from a religious liberty issue to one on the separation of church and state. Many secular people are tired of religious moralism in their private lives, and are willing to take you up on it.`
         }
@@ -6728,7 +6730,7 @@ campaignTrail_temp.answer_feedback_json = [
         "model": "campaign_trail.answer_feedback",
         "pk": "f 304004",
         "fields": {
-            "answer": 303004,
+            "answer": 304004,
             "candidate": 300,
             "answer_feedback": `Jacobs stammers, saying his religious beliefs have nothing to do with his political platform. But he’s lying, and the same can be said about the other members in his coalition.`
         }
@@ -6836,7 +6838,7 @@ campaignTrail_temp.answer_feedback_json = [
         "model": "campaign_trail.answer_feedback",
         "pk": "f 314001",
         "fields": {
-            "answer": 313001,
+            "answer": 314001,
             "candidate": 300,
             "answer_feedback": `A snappy come back with a snappy sound clip. Roberts is just a preacher, he’s no historian, and doesn’t have the ability to refute any of this. And you walk away, once again unscathed.`
         }
@@ -6845,7 +6847,7 @@ campaignTrail_temp.answer_feedback_json = [
         "model": "campaign_trail.answer_feedback",
         "pk": "f 314002",
         "fields": {
-            "answer": 313002,
+            "answer": 314002,
             "candidate": 300,
             "answer_feedback": `Roberts responds. His face is grim and serious. “Every society enforces morality, even atheists will prohibit murder. You might think that you can create a moral society tethered to nothing. But without God, everything becomes permissible.”`
         }
@@ -6854,7 +6856,7 @@ campaignTrail_temp.answer_feedback_json = [
         "model": "campaign_trail.answer_feedback",
         "pk": "f 314003",
         "fields": {
-            "answer": 313003,
+            "answer": 314003,
             "candidate": 300,
             "answer_feedback": `“I don’t know. Why don’t I ask the same of you?” Roberts asks in response. To many, he has a point. To many, you are mirror images of the same archetype, you are no better than he is.`
         }
@@ -6863,7 +6865,7 @@ campaignTrail_temp.answer_feedback_json = [
         "model": "campaign_trail.answer_feedback",
         "pk": "f 314004",
         "fields": {
-            "answer": 313004,
+            "answer": 314004,
             "candidate": 300,
             "answer_feedback": `Roberts spends the next 30 minutes trying to get you to answer a question, but you just smile smugly. “I’m trying to talk with you in good faith,” Roberts sighs. “But I suppose you have no interest to do that.” Your supporters cheer, but the public sides with Roberts.`
         }
@@ -7027,7 +7029,7 @@ campaignTrail_temp.answer_feedback_json = [
         "model": "campaign_trail.answer_feedback",
         "pk": "f 324001",
         "fields": {
-            "answer": 323001,
+            "answer": 324001,
             "candidate": 300,
             "answer_feedback": `“Everyone thinks they’re rational, and they can’t all be right,” she retorts. This does minorly dent your support, but for the most part, your supporters side with you, and hers with hers.`
         }
@@ -7036,7 +7038,7 @@ campaignTrail_temp.answer_feedback_json = [
         "model": "campaign_trail.answer_feedback",
         "pk": "f 324002",
         "fields": {
-            "answer": 323002,
+            "answer": 324002,
             "candidate": 300,
             "answer_feedback": `The American people read your response with abject horror. Calling tens of millions of deaths an sacrifice you’re willing to make on the path to utopia is not only hopelessly delusional, it’s psychotic. You get metaphorically drawn and quartered. With some calling to make it literal.`
         }
@@ -7045,7 +7047,7 @@ campaignTrail_temp.answer_feedback_json = [
         "model": "campaign_trail.answer_feedback",
         "pk": "f 324003",
         "fields": {
-            "answer": 323003,
+            "answer": 324003,
             "candidate": 300,
             "answer_feedback": `“I have seen a world after the death of God…” she says, shaking. “Yeah, you’re living in it,” you reply. “No… My world… Backlash… Billions dead. I’ve seen…” You shake your head, her mental illnesses are taking control of her once again.`
         }
@@ -7054,7 +7056,7 @@ campaignTrail_temp.answer_feedback_json = [
         "model": "campaign_trail.answer_feedback",
         "pk": "f 324004",
         "fields": {
-            "answer": 323004,
+            "answer": 324004,
             "candidate": 300,
             "answer_feedback": `Haley explodes at you on live air. Apparently history is a subject near and dear to her, and she thinks you just butchered it. She’s the most animated you have seen her all season. Unfortunately, the uneducated American people side with her. Fools.`
         }
@@ -18033,7 +18035,7 @@ endingPicker = (out, totv, aa, quickstats) => {
 
 	// if (campaignTrail_temp.player_answers[24] == 8090 && quickstats[0] >= 270 && campaignTrail_temp.running_mate_last_name == "PlaceLastNameHere") 
 	
-	if (ending == "bliss_lose") {
+	if (ending == "demo") {
 		setImage("https://i.imgur.com/H0WSBwl.png");
 		return `<span id="ending_text"><h3>Our next Great Adventure</h3><div style='overflow-y:scroll; height:235px;'><p>If you are seeing this, it means you won. Normally, the game would continue into Gray's first term, but I haven't finished it yet. Believe it or not, this is just the demo. This project is taking way longer than expected. If I had to guess, don't bet on a release date until 2025 at the earliest. Thanks for playing everyone. There are plenty of secrets to be found, even in the Demo. Feel free to try and go find them. Nowadays, everyone is using benefit checker and the cheat menu after the first few playthroughs, and I thought it was about time for the cheat menu to become a part of intended gameplay...</p></div></span>`
 	}
