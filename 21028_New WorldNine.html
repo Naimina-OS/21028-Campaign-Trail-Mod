@@ -744,14 +744,14 @@ cyoAdventure = function (a) {
 				end_the_game = 1;
 				ending = "suboptimal_seam";
 			} else {
-				campaignTrail_temp.questions_json[getQuestionNumberFromPk("question36")]=getQuestion("1st_transition_seam");
+				campaignTrail_temp.questions_json[getQuestionNumberFromPk("question36")]=getQuestion("1st_transition_win");
 				end_the_game = 1;
 				ending = "demo";
 				//campaignTrail_temp.questions_json[getQuestionNumberFromPk("question36")]=getQuestion("1st_transition_win");
 			}
 		} else if (Math.max(pop_dict, key=pop_dict.get) == 300) {
 			//campaignTrail_temp.questions_json[getQuestionNumberFromPk("question36")]=getQuestion("1st_transition_contingent_win");
-			campaignTrail_temp.questions_json[getQuestionNumberFromPk("question36")]=getQuestion("1st_transition_seam");
+			campaignTrail_temp.questions_json[getQuestionNumberFromPk("question36")]=getQuestion("1st_transition_contingent_win");
 			end_the_game = 1;
 			ending = "demo";
 		} else {
