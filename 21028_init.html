@@ -6,12 +6,25 @@ RecReading=true
 e = campaignTrail_temp;
 
 e.mod_achievements = true;
-campaignTrail_temp.achievements = {
-	"Everywhere at the End of Time" : {
-        "image" : "https://i.imgur.com/2K4r2lL.png",
-        "description" : "Finish the game.",
-        "cannotBeCheated" : true
-    },
+
+if (allAch["21028"] == undefined) {
+	campaignTrail_temp.achievements = {
+		"Everywhere at the End of Time" : {
+			"image" : "https://i.imgur.com/2K4r2lL.png",
+			"description" : "Finish the game.",
+			"cannotBeCheated" : true
+		},
+	}
+}
+
+campaignTrail_temp.modBoxTheme = {
+  "header_color": "#444444",
+  "header_text_color": "#ffffff",
+  "description_text_color": "#000000",
+  "description_background_color": "#ffffff",
+  "main_color": "#000000",
+  "secondary_color": "#333333",
+  "ui_text_color": "#ffffff"
 }
 
 e.collect_results = true;
