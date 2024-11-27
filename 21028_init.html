@@ -522,7 +522,7 @@ e.candidate_json = [
 e.running_mate_json = [
 	{"model":"campaign_trail.running_mate","pk":2001,"fields":{"candidate":300,"running_mate":304}}];
 
-e.credits = "<span style = 'background: dimgray;' title = 'All coding done by u/naimina_os.\nMuch thanks to u/RagyTheKindaHipster for coding help on this unsightly,\nbodged together project held together by hot glue and duct tape.'>several people</span>";
+e.credits = `<span style = "background: cyan; color: black; cursor: pointer;", onclick = "alert('All coding done by u/naimina_os.\\n\\nMuch thanks to u/RagyTheKindaHipster for coding help on this unsightly, bodged together project held together by hot glue and duct tape.\\n\\nThank you to Ronnie (u/thebig-boi), who helped out with writing.\\n\\nAnd finally, thank you to my wonderful playtesters, who believed in this project before it was done.\\n\\nThe Original 19: jonfromca, realtrey19, DalTheFox, nephrenkur (EmpireUnited), yaoboihf (HF), epicisman7770_72446, everynametaken, libertarianfellow (Frank Lowden), genevra (Genny), jocab. (Its never been more Joever), ncrranger2122 (Minute Man), mumkey_9814 (MUMKEY), munastronaut, liutenant_ (ordep), ashraf177 (pootmehoot), ronnierouser (Ronnie), spacenerd4 (bacheist), literallyparticracy, and wolfgang2337 (Wolfgang).')">several people. Click me for credits!</span>`;
 
 e.global_parameter_json =[
 	{
@@ -609,7 +609,6 @@ function darkMode4() {
 	document.getElementsByName("game_type_selection")[0].style = "color:white";
 	document.getElementsByName("difficulty_level_selection")[0].style = "color:white";
 	document.getElementById("opponent_selection_id_back").addEventListener("click", darkMode3);
-	document.getElementById("opponent_selection_id_button").addEventListener("click", change_audio(1));
 }
 
 
